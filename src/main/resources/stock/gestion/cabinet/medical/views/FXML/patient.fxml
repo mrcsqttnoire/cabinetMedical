@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
@@ -19,9 +25,9 @@
          <children>
             <BorderPane layoutX="568.0" layoutY="328.0" prefHeight="992.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <top>
-                  <AnchorPane prefHeight="56.0" prefWidth="1280.0" styleClass="header" stylesheets="@../../assets/css/patientStyle.css" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="56.0" prefWidth="1280.0" styleClass="header" stylesheets="@../../assets/css/main.css" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane layoutX="-2.0" layoutY="1.0" prefHeight="62.0" prefWidth="259.0" styleClass="right-border" stylesheets="@../../Static/patientStyle.css">
+                        <AnchorPane prefHeight="62.0" prefWidth="257.0" styleClass="right-border" stylesheets="@../../Static/patientStyle.css">
                            <children>
                               <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="61.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="61.0" AnchorPane.topAnchor="17.0">
                                  <image>
@@ -35,9 +41,9 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="732.0" layoutY="15.0">
+                        <AnchorPane layoutX="732.0" layoutY="15.0" AnchorPane.rightAnchor="281.0">
                            <children>
-                              <Label alignment="CENTER" prefHeight="32.0" prefWidth="267.0" stylesheets="@../../assets/css/patientStyle.css" text="Vendredi 24 Septembre 2026">
+                              <Label alignment="CENTER" prefHeight="32.0" prefWidth="267.0" stylesheets="@../../assets/css/patientStyle.css" text="Vendredi 24 Septembre 2026" AnchorPane.rightAnchor="0.0">
                                  <styleClass>
                                     <String fx:value="custom-label" />
                                     <String fx:value="custom-label-d" />
@@ -58,7 +64,7 @@
                               <FontIcon iconLiteral="fas-search" layoutX="10.0" layoutY="17.2421875" AnchorPane.bottomAnchor="10.484375" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="6.484375" />
                            </children>
                         </AnchorPane>
-                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="1030.0" layoutY="11.0" mnemonicParsing="false" styleClass="btn-primary" text="Nouveau Rendez-vous" textFill="WHITE">
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="1030.0" layoutY="11.0" mnemonicParsing="false" styleClass="btn-primary" text="Nouveau Rendez-vous" textFill="WHITE" AnchorPane.rightAnchor="29.0">
                            <font>
                               <Font name="Arial" size="14.0" />
                            </font>
@@ -67,11 +73,11 @@
                   </AnchorPane>
                </top>
                <left>
-                  <AnchorPane prefHeight="984.0" prefWidth="256.0" styleClass="right-border" stylesheets="@../../assets/css/patientStyle.css" BorderPane.alignment="CENTER">
+                  <AnchorPane prefHeight="927.0" prefWidth="257.0" styleClass="right-border" stylesheets="@../../assets/css/main.css" BorderPane.alignment="CENTER">
                      <children>
                         <AnchorPane layoutX="1.0" layoutY="47.0" prefHeight="52.0" prefWidth="255.0">
                            <children>
-                              <Button alignment="BASELINE_LEFT" layoutX="25.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="227.0" styleClass="nav" stylesheets="@../../assets/css/patientStyle.css" text="Tableau de bord" />
+                              <Button alignment="BASELINE_LEFT" layoutX="25.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="227.0" styleClass="nav" stylesheets="@../../assets/css/patientStyle.css" text="Tableau de bord" textFill="#3e4947" />
                               <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="26.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="26.0" AnchorPane.topAnchor="14.0">
                                  <image>
                                     <Image url="@../../assets/icon/dasboard.png" />
@@ -137,7 +143,92 @@
                   </AnchorPane>
                </left>
                <center>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #F8F9FF;" stylesheets="@../../assets/css/patientStyle.css" BorderPane.alignment="CENTER" />
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #F8F9FF;" stylesheets="@../../assets/css/main.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="16.0" layoutY="19.0" prefHeight="355.0" prefWidth="993.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="19.0">
+                           <children>
+                              <Label layoutX="22.0" layoutY="14.0" styleClass="main-label" stylesheets="@../../assets/css/main.css" text="Nouveau patient" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="14.0" />
+                              <GridPane layoutX="15.0" layoutY="63.0" prefHeight="246.0" prefWidth="961.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="271.0" minWidth="10.0" prefWidth="220.0" />
+                                    <ColumnConstraints hgrow="ALWAYS" maxWidth="751.0" minWidth="10.0" prefWidth="743.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <AnchorPane prefHeight="250.0" prefWidth="257.0">
+                                       <children>
+                                          <FontIcon iconLiteral="fas-user-injured" iconSize="150" layoutX="48.0" layoutY="179.0" />
+                                       </children>
+                                    </AnchorPane>
+                                    <GridPane prefHeight="243.0" prefWidth="732.0" GridPane.columnIndex="1">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <VBox prefHeight="95.0" prefWidth="478.0">
+                                             <children>
+                                                <Label styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Nom :" />
+                                                <TextField prefHeight="49.0" prefWidth="474.0" />
+                                             </children>
+                                             <GridPane.margin>
+                                                <Insets right="10.0" />
+                                             </GridPane.margin>
+                                          </VBox>
+                                          <VBox layoutX="10.0" layoutY="10.0" prefHeight="83.0" prefWidth="483.0" GridPane.columnIndex="1">
+                                             <children>
+                                                <Label styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Prenom :" />
+                                                <TextField prefHeight="49.0" prefWidth="474.0">
+                                                   <VBox.margin>
+                                                      <Insets />
+                                                   </VBox.margin>
+                                                </TextField>
+                                             </children>
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </VBox>
+                                          <VBox layoutX="10.0" layoutY="187.0" prefHeight="58.0" prefWidth="484.0" GridPane.rowIndex="2">
+                                             <children>
+                                                <Label styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Adresse :" />
+                                                <TextField prefHeight="49.0" prefWidth="474.0" />
+                                             </children>
+                                             <GridPane.margin>
+                                                <Insets right="10.0" />
+                                             </GridPane.margin>
+                                          </VBox>
+                                          <VBox prefHeight="88.0" prefWidth="249.0" GridPane.rowIndex="1">
+                                             <children>
+                                                <Label styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Date de naissance :" />
+                                                <DatePicker prefHeight="48.0" prefWidth="362.0" />
+                                             </children>
+                                             <GridPane.margin>
+                                                <Insets right="10.0" />
+                                             </GridPane.margin>
+                                          </VBox>
+                                          <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <children>
+                                                <Label styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Téléphone :" />
+                                                <TextField prefHeight="49.0" prefWidth="474.0" />
+                                             </children>
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </VBox>
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                     </children></AnchorPane>
                </center>
             </BorderPane>
          </children>

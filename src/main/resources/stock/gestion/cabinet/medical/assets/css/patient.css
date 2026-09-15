@@ -1,0 +1,6 @@
+@import url(main.css);
+
+.form-label{
+    -fx-font-family : "Poppins Medium";
+    -fx-font-size : 16px;
+}

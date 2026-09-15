@@ -40,7 +40,7 @@ public class patient_dao {
     }
     
     public boolean modifierPatient(Patient patient){
-        String sql = "UPDATE patient SET nom = ?, prenom = ?, date_naissance = ?, telephone = ?, adresse = ? WHERE id = ?";
+        String sql = "UPDATE patient SET nom = ?, prenom = ?, date_naissance = ?, telephone = ?, adresse = ? WHERE id_patient = ?";
         
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
@@ -58,6 +58,21 @@ public class patient_dao {
             e.printStackTrace();
         }
         
+        return false;
+    }
+
+    public boolean supprimerPatient(Patient patient){
+        String sql = "DELETE patient WHERE id_patient = ?";
+
+        try{
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, patient.getId());
+            System.out.println("Patient supprimé");
+            return stmt.executeUpdate() > 0;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
         return false;
     }
 }

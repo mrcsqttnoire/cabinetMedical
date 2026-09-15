@@ -7,6 +7,9 @@
 @font-face {
     src: url(../fonts/Poppins/Poppins-Medium.ttf);
 }
+@font-face {
+    src: url(../fonts/Poppins/Poppins-Bold.ttf);
+}
 
 * {
     -primary-color: #0F766E;
@@ -36,10 +39,13 @@
     -fx-text-fill : -neutral-color;
 }
 
+.side-bar{
+    -fx-background-color : -primary-color; 
+}
 
 .header{
     -fx-border-color : -border-color;
-    -fx-border-width : 0px 0px .5px 0px;
+    -fx-border-width : .5px 0px .5px 0px;
 }
 
 .right-border{
@@ -65,4 +71,9 @@
     -fx-font-family : "Poppins Medium";
     -fx-font-size : 14px;
     -fx-border-radius : 7px;
+}
+
+.main-label{
+    -fx-font-family : "Poppins Bold";
+    -fx-font-size : 24px;
 }
