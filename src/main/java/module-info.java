@@ -6,5 +6,6 @@ module stock.gestion.cabine.medical {
     requires org.kordamp.ikonli.fontawesome5;
 
     opens stock.gestion.cabinet.medical to javafx.fxml;
+    opens controller to javafx.fxml;
     exports stock.gestion.cabinet.medical;
 }
