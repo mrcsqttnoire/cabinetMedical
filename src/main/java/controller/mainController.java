@@ -3,8 +3,11 @@ package controller;
 import javafx.fxml.Initializable;
 
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
@@ -63,8 +66,28 @@ public class mainController implements Initializable{
         contentArea.getChildren().setAll(facView);
     }
 
+    public void runTime(){
+        new Thread(){
+            public void run(){
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy | hh:mm:ss a");
+                while (true) {
+                    try{
+                        Thread.sleep(1000);
+                    } catch(Exception e){
+                        e.printStackTrace();
+                    }
+
+                    Platform.runLater(() -> {
+                        dateDuJour.setText(format.format(new Date()));
+                    });
+                }
+
+            }
+        }.start();
+    }
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-                
+        runTime();
     }
 }

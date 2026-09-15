@@ -38,7 +38,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="732.0" layoutY="15.0" AnchorPane.rightAnchor="281.0">
                            <children>
-                              <Label fx:id="dateDuJour" alignment="CENTER" prefHeight="32.0" prefWidth="267.0" stylesheets="@../../assets/css/patientStyle.css" text="Vendredi 24 Septembre 2026" AnchorPane.rightAnchor="0.0">
+                              <Label fx:id="dateDuJour" alignment="CENTER" prefHeight="32.0" prefWidth="267.0" stylesheets="@../../assets/css/patientStyle.css" text="........." AnchorPane.rightAnchor="0.0">
                                  <styleClass>
                                     <String fx:value="custom-label" />
                                     <String fx:value="custom-label-d" />
