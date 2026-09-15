@@ -18,7 +18,7 @@
     -primary-color: #0F766E;
     -bg-color: #F8F9FF;
     -neutral-color: #f4f4f4;
-
+    -text-color : #3E4947;
     -border-color : #BDC9C6;
 
     -primary-font : "Poppins SemiBold";
@@ -40,6 +40,13 @@
     -fx-font-family : "Poppins Medium";
     -fx-font-size : 14px;
     -fx-text-fill : -neutral-color;
+}
+.btn-secondary{
+    -fx-background-color : -neutral-color;
+    -fx-padding : 10px 30px;
+    -fx-font-family : "Poppins Medium";
+    -fx-font-size : 14px;
+    -fx-text-fill : -primary-color;
 }
 
 .header{
@@ -82,5 +89,30 @@
 }
 
 .radius{
-    -fx-border-radius : 15px;
+    -fx-background-radius : 10px;
+}
+.radius-btn{
+    -fx-background-radius : 7px;
+}
+
+.custom-table-view{
+    -fx-padding : 0px;
+    -fx-border-radius : 8px;
+    -fx-border-color : -border-color;
+}
+
+.custom-table-view .column-header-background {
+    -fx-background-color : -primary-color;
+    -fx-background-insets : 0 0 0 0;
+    -fx-background-radius : 10px 10px 0px 0px;
+}
+.custom-table-view .column-header, .filter{
+    -fx-size : 40px;
+    -fx-background-color : transparent;
+    -fx-font-size : 16px;   
+}
+
+.custom-table-view .column-header .label{
+    -fx-text-fill : -neutral-color;
+    -fx-font-family : "Poppins Bold";
 }
