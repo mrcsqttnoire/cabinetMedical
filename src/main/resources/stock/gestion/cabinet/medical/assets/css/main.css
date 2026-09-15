@@ -1,5 +1,8 @@
 @font-face {
-    src: url(../fonts/Montserrat-SemiBold.ttf);
+    src: url(../fonts/OpenSans/OpenSans-Regular.ttf);
+}
+@font-face {
+    src: url(../fonts/OpenSans/OpenSans-Medium.ttf);
 }
 @font-face {
     src: url(../fonts/Poppins/Poppins-SemiBold.ttf);
@@ -18,7 +21,7 @@
 
     -border-color : #BDC9C6;
 
-    -primary-font : "Montserrat SemiBold";
+    -primary-font : "Poppins SemiBold";
 
 }
 .logo{
@@ -37,10 +40,6 @@
     -fx-font-family : "Poppins Medium";
     -fx-font-size : 14px;
     -fx-text-fill : -neutral-color;
-}
-
-.side-bar{
-    -fx-background-color : -primary-color; 
 }
 
 .header{
@@ -70,10 +69,18 @@
 .custom-textField{
     -fx-font-family : "Poppins Medium";
     -fx-font-size : 14px;
-    -fx-border-radius : 7px;
 }
 
 .main-label{
     -fx-font-family : "Poppins Bold";
     -fx-font-size : 24px;
+}
+
+.bo{
+    -fx-border-color : -border-color;
+    -fx-border-width : .5px;
+}
+
+.radius{
+    -fx-border-radius : 15px;
 }

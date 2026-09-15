@@ -145,87 +145,103 @@
                <center>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #F8F9FF;" stylesheets="@../../assets/css/main.css" BorderPane.alignment="CENTER">
                      <children>
-                        <AnchorPane layoutX="16.0" layoutY="19.0" prefHeight="355.0" prefWidth="993.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="19.0">
+                        <AnchorPane layoutX="16.0" layoutY="19.0" maxWidth="1.7976931348623157E308" prefHeight="413.0" prefWidth="993.0" AnchorPane.bottomAnchor="496.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="19.0">
                            <children>
+                              <Label layoutX="22.0" layoutY="50.0" prefHeight="25.0" prefWidth="547.0" styleClass="custom-text" stylesheets="@../../assets/css/patient.css" text="Enregistrement d'un nouvel individu dans la base de données médicale">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Label>
                               <Label layoutX="22.0" layoutY="14.0" styleClass="main-label" stylesheets="@../../assets/css/main.css" text="Nouveau patient" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="14.0" />
-                              <GridPane layoutX="15.0" layoutY="63.0" prefHeight="246.0" prefWidth="961.0">
-                                 <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="271.0" minWidth="10.0" prefWidth="220.0" />
-                                    <ColumnConstraints hgrow="ALWAYS" maxWidth="751.0" minWidth="10.0" prefWidth="743.0" />
-                                 </columnConstraints>
-                                 <rowConstraints>
-                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                 </rowConstraints>
+                              <AnchorPane layoutX="16.0" layoutY="94.0" prefHeight="290.0" prefWidth="961.0" stylesheets="@../../assets/css/patient.css" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="94.0">
                                  <children>
-                                    <AnchorPane prefHeight="250.0" prefWidth="257.0">
+                                    <GridPane maxWidth="1.7976931348623157E308" prefHeight="246.0" prefWidth="961.0" styleClass="radius" stylesheets="@../../assets/css/patient.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="271.0" minWidth="10.0" prefWidth="220.0" />
+                                          <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="743.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
                                        <children>
-                                          <FontIcon iconLiteral="fas-user-injured" iconSize="150" layoutX="48.0" layoutY="179.0" />
-                                       </children>
-                                    </AnchorPane>
-                                    <GridPane prefHeight="243.0" prefWidth="732.0" GridPane.columnIndex="1">
-                                      <columnConstraints>
-                                        <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
-                                          <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
-                                      </columnConstraints>
-                                      <rowConstraints>
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                      </rowConstraints>
-                                       <children>
-                                          <VBox prefHeight="95.0" prefWidth="478.0">
+                                          <AnchorPane prefHeight="250.0" prefWidth="257.0">
                                              <children>
-                                                <Label styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Nom :" />
-                                                <TextField prefHeight="49.0" prefWidth="474.0" />
+                                                <FontIcon iconColor="#005c55" iconLiteral="fas-user-injured" iconSize="150" layoutX="45.0" layoutY="179.0" />
                                              </children>
-                                             <GridPane.margin>
-                                                <Insets right="10.0" />
-                                             </GridPane.margin>
-                                          </VBox>
-                                          <VBox layoutX="10.0" layoutY="10.0" prefHeight="83.0" prefWidth="483.0" GridPane.columnIndex="1">
+                                          </AnchorPane>
+                                          <GridPane prefHeight="246.0" prefWidth="709.0" GridPane.columnIndex="1">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
                                              <children>
-                                                <Label styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Prenom :" />
-                                                <TextField prefHeight="49.0" prefWidth="474.0">
-                                                   <VBox.margin>
-                                                      <Insets />
-                                                   </VBox.margin>
-                                                </TextField>
+                                                <VBox maxWidth="1.7976931348623157E308" prefHeight="95.0" prefWidth="478.0">
+                                                   <children>
+                                                      <Label maxWidth="1.7976931348623157E308" styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Nom :" />
+                                                      <TextField maxWidth="1.7976931348623157E308" prefHeight="49.0" prefWidth="474.0" styleClass="custom-textField" stylesheets="@../../assets/css/main.css" />
+                                                   </children>
+                                                   <GridPane.margin>
+                                                      <Insets right="10.0" />
+                                                   </GridPane.margin>
+                                                </VBox>
+                                                <VBox layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" prefHeight="83.0" prefWidth="483.0" GridPane.columnIndex="1">
+                                                   <children>
+                                                      <Label maxWidth="1.7976931348623157E308" styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Prenom :" />
+                                                      <TextField maxWidth="1.7976931348623157E308" prefHeight="49.0" prefWidth="474.0" styleClass="custom-textField" stylesheets="@../../assets/css/main.css">
+                                                         <VBox.margin>
+                                                            <Insets />
+                                                         </VBox.margin>
+                                                      </TextField>
+                                                   </children>
+                                                   <GridPane.margin>
+                                                      <Insets left="10.0" />
+                                                   </GridPane.margin>
+                                                </VBox>
+                                                <VBox layoutX="10.0" layoutY="187.0" maxWidth="1.7976931348623157E308" prefHeight="58.0" prefWidth="484.0" GridPane.rowIndex="2">
+                                                   <children>
+                                                      <Label maxWidth="1.7976931348623157E308" styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Adresse :" />
+                                                      <TextField maxWidth="1.7976931348623157E308" prefHeight="49.0" prefWidth="474.0" styleClass="custom-textField" stylesheets="@../../assets/css/main.css" />
+                                                   </children>
+                                                   <GridPane.margin>
+                                                      <Insets right="10.0" />
+                                                   </GridPane.margin>
+                                                </VBox>
+                                                <VBox maxWidth="1.7976931348623157E308" prefHeight="88.0" prefWidth="249.0" GridPane.rowIndex="1">
+                                                   <children>
+                                                      <Label maxWidth="1.7976931348623157E308" styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Date de naissance :" />
+                                                      <DatePicker maxWidth="1.7976931348623157E308" prefHeight="48.0" prefWidth="362.0" styleClass="custom-textField" stylesheets="@../../assets/css/main.css" />
+                                                   </children>
+                                                   <GridPane.margin>
+                                                      <Insets right="10.0" />
+                                                   </GridPane.margin>
+                                                </VBox>
+                                                <VBox maxWidth="1.7976931348623157E308" prefHeight="82.0" prefWidth="334.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                   <children>
+                                                      <Label maxWidth="1.7976931348623157E308" styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Téléphone :" />
+                                                      <TextField maxWidth="1.7976931348623157E308" prefHeight="49.0" prefWidth="474.0" styleClass="custom-textField" stylesheets="@../../assets/css/main.css" />
+                                                   </children>
+                                                   <GridPane.margin>
+                                                      <Insets left="10.0" />
+                                                   </GridPane.margin>
+                                                </VBox>
                                              </children>
-                                             <GridPane.margin>
-                                                <Insets left="10.0" />
-                                             </GridPane.margin>
-                                          </VBox>
-                                          <VBox layoutX="10.0" layoutY="187.0" prefHeight="58.0" prefWidth="484.0" GridPane.rowIndex="2">
-                                             <children>
-                                                <Label styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Adresse :" />
-                                                <TextField prefHeight="49.0" prefWidth="474.0" />
-                                             </children>
-                                             <GridPane.margin>
-                                                <Insets right="10.0" />
-                                             </GridPane.margin>
-                                          </VBox>
-                                          <VBox prefHeight="88.0" prefWidth="249.0" GridPane.rowIndex="1">
-                                             <children>
-                                                <Label styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Date de naissance :" />
-                                                <DatePicker prefHeight="48.0" prefWidth="362.0" />
-                                             </children>
-                                             <GridPane.margin>
-                                                <Insets right="10.0" />
-                                             </GridPane.margin>
-                                          </VBox>
-                                          <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                             <children>
-                                                <Label styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Téléphone :" />
-                                                <TextField prefHeight="49.0" prefWidth="474.0" />
-                                             </children>
-                                             <GridPane.margin>
-                                                <Insets left="10.0" />
-                                             </GridPane.margin>
-                                          </VBox>
+                                          </GridPane>
                                        </children>
                                     </GridPane>
                                  </children>
-                              </GridPane>
+                                 <padding>
+                                    <Insets bottom="20.0" right="20.0" top="20.0" />
+                                 </padding>
+                                 <styleClass>
+                                    <String fx:value="panel" />
+                                    <String fx:value="bo" />
+                                 </styleClass>
+                              </AnchorPane>
                            </children>
                         </AnchorPane>
                      </children></AnchorPane>
