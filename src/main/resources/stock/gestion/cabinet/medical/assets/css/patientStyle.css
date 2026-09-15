@@ -1,0 +1,25 @@
+* {
+    -primary-color: #0F766E;
+    -danger-color: #e74c3c;
+    -neutral-color: #f4f4f4;
+
+    -border-color : #BDC9C6;
+
+}
+
+.btn{
+    -fx-background-color : transparent;
+}
+.btn-primary{
+    -fx-background-color : -primary-color;
+    -fx-padding : 10px 30px;
+    -fx-font-family : "Poppins SemiBold";
+}
+.header{
+    -fx-border-color : -border-color;
+    -fx-border-width : 0px 0px .5px 0px;
+}
+.right-border{
+    -fx-border-color : -border-color;
+    -fx-border-width : 0px .5px 0px 0px;
+}
