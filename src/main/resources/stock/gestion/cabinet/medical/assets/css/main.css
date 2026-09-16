@@ -114,3 +114,31 @@
     -fx-text-fill : -neutral-color;
     -fx-font-family : "Poppins Bold";
 }
+
+
+.table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #e0e0e0 transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-font-family: "Open Sans Medium";
+    -fx-font-size : 16px;   
+}
+.table-row-cell .table-cell {
+    -fx-padding: 10px 10px;
+    -fx-alignment: top-left;
+}
+.table-row-cell:hover {
+    -fx-background-color: #f0f8f7;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #0f766d8c; /* le vert-bleu de ta maquette MEDCABINET */
+    -fx-text-fill: white;
+}
+
+.table-row-cell:selected .table-cell {
+    -fx-text-fill: white;
+}
+#tablePatient_col_contact{
+    -fx-alignment: top-center;
+}

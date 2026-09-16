@@ -2,10 +2,14 @@
 package dao;
 
 import java.sql.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 import controller.mainController;
 import model.patient_class.Patient;
 import db.DBConnection;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 
 public class PatienDao {
@@ -78,4 +82,30 @@ public class PatienDao {
         }
         return false;
     }
+
+    private ResultSet result;
+    public ObservableList<Patient> patientGetData(){
+      ObservableList<Patient> listData = FXCollections.observableArrayList();
+
+      String sql = "SELECT * FROM patient";
+      try{
+        Statement query =  conn.createStatement();
+        result = query.executeQuery(sql);
+
+        Patient patient;
+
+        while (result.next()) {
+            patient = new  Patient(result.getString("nom"), result.getString("prenom"), result.getObject("date_naissance", LocalDate.class),  result.getString("telephone"),  result.getString("adresse"));
+
+            listData.add(patient);
+        }
+        
+      } catch (Exception err){
+        err.printStackTrace();
+      }
+
+      return listData;
+
+    } 
+
 }

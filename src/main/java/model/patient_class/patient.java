@@ -22,6 +22,9 @@ public class Patient {
     public String getNom(){
         return this.nom;
     }
+    public String getNomPrenom(){
+        return this.nom + " " + this.prenom;
+    }
     public String getPrenom(){
         return this.prenom;
     }
