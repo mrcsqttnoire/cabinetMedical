@@ -157,7 +157,7 @@
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
                                           </Button>
-                                          <Button fx:id="btnAnnuler" alignment="CENTER" contentDisplay="CENTER" layoutX="193.0" layoutY="31.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="192.0" text="Annuler" textFill="WHITE">
+                                          <Button fx:id="btnAnnuler" alignment="CENTER" contentDisplay="CENTER" layoutX="193.0" layoutY="31.0" mnemonicParsing="false" onAction="#annuleNouveauPatient" prefHeight="40.0" prefWidth="192.0" text="Annuler" textFill="WHITE">
                                              <font>
                                                 <Font name="Arial" size="14.0" />
                                              </font>

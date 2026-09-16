@@ -2,6 +2,7 @@ package controller;
 
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.ResourceBundle;
 
 import dao.PatienDao;
@@ -61,18 +62,29 @@ public class patientController implements Initializable {
 
     private String msg;
     private Alert.AlertType type;
+    private LocalDate dateDuJour = LocalDate.now();
 
     @FXML 
     public void ajouterPatient(){
         try{
             String nom = nomPatient.getText();
             String prenom = prenPatient.getText();
-            LocalDate dateNaiss = dateNaissPatient.getValue();
+            // LocalDate dateNaiss = dateNaissPatient.getValue();
+            LocalDate dateNaiss;
+            String texteDate = dateNaissPatient.getEditor().getText();
             String adresse = adrsPatient.getText();
             String contact = telPatient.getText();
 
-            if(!nom.isEmpty() && !prenom.isEmpty() && dateNaiss != null && !adresse.isEmpty() && !contact.isEmpty()){
-                if (dateNaissPatient.getValue().isAfter(LocalDate.now())) {
+            if(!nom.isEmpty() && !prenom.isEmpty() && texteDate != null || texteDate.isEmpty() && !adresse.isEmpty() && !contact.isEmpty()){
+                try {
+                    dateNaiss = dateNaissPatient.getConverter().fromString(texteDate);
+                    dateNaissPatient.setValue(dateNaiss);
+                } catch (DateTimeParseException e) {
+                    mainController.showAlert("Format de date invalide", Alert.AlertType.ERROR).show();
+                    return;
+                }
+
+                if (dateNaiss.isAfter(dateDuJour)) {
                     mainController.showAlert("La date de naissance ne peut pas être dans le futur !", Alert.AlertType.ERROR).show();
                     return ;
                 } else {
@@ -95,7 +107,11 @@ public class patientController implements Initializable {
             err.printStackTrace();
         }
 
+    }
 
+    @FXML 
+    public void annuleNouveauPatient(){
+        mainController.viderChamps(dateNaissPatient, nomPatient, prenPatient, adrsPatient, telPatient);
     }
 
 }

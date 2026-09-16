@@ -88,8 +88,7 @@ public class mainController implements Initializable{
     public static void Capitalize(TextField... fields) {
         for(TextField field: fields){
             field.textProperty().addListener((observable, oldValue, newValue) -> {
-                field.setText(newValue.substring(0, 1).toUpperCase() + newValue.substring(1).toLowerCase());
-                if (newValue == null || newValue.isEmpty()) {
+                if (newValue == null || newValue.trim().isEmpty()) {
                     return;
                 }
                 String formatted = newValue.substring(0, 1).toUpperCase() + newValue.substring(1).toLowerCase();
