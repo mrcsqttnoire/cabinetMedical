@@ -2,8 +2,11 @@ package controller;
 
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.ResourceBundle;
+
+import org.kordamp.ikonli.javafx.FontIcon;
 
 import dao.PatienDao;
 import javafx.collections.ObservableList;
@@ -11,10 +14,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
@@ -30,6 +36,12 @@ public class patientController implements Initializable {
 
     @FXML
     private Button btnAnnuler;
+
+    @FXML
+    private FontIcon btnDelete;
+
+    @FXML
+    private FontIcon btnEdit;
 
     @FXML
     private DatePicker dateNaissPatient;
@@ -54,6 +66,24 @@ public class patientController implements Initializable {
 
     @FXML
     private TextField telPatient;
+
+    @FXML
+    private Label labAdrs;
+
+    @FXML
+    private Label labContact;
+
+    @FXML
+    private Label labDateNaiss;
+
+    @FXML
+    private Label labNom;
+
+    @FXML
+    private Label labPrenom;
+
+    @FXML
+    private AnchorPane infoPane;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -131,5 +161,44 @@ public class patientController implements Initializable {
         tablePatient_col_contact.setCellValueFactory(new PropertyValueFactory<>("telephone"));
 
         tablePatient.setItems(patientsList);
+
+        tablePatient.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if(newSelection != null){
+                infoPane.setDisable(false);
+                afficheInfo(newSelection);
+            }else{
+                infoPane.setDisable(true);
+            }
+        });
+    }
+
+    private Patient patientSelectionne;
+    public void afficheInfo(Patient patient){
+        this.patientSelectionne = patient;
+
+        labNom.setText(patient.getNom());
+        labPrenom.setText(patient.getPrenom());
+        labContact.setText(patient.getTelephone());
+        labDateNaiss.setText(patient.getDateNaiss().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        labAdrs.setText(patient.getAdresse());
+    }
+
+
+
+    @FXML 
+    public void supprimerPatient(){
+        if(mainController.confirmerAction("Voulez-vous vraiment supprimer ?")){
+            try{
+                PatienDao dao = new PatienDao();
+                if(dao.supprimerPatient(patientSelectionne)){
+                    patientsList.remove(patientSelectionne);    
+                    mainController.showAlert("Patient supprimé", Alert.AlertType.INFORMATION).show();
+                }
+            } catch (Exception err){
+                err.printStackTrace();
+            }
+        }
+        // System.out.println(patientSelectionne.getId());
+
     }
 }

@@ -69,7 +69,7 @@ public class PatienDao {
     }
 
     public boolean supprimerPatient(Patient patient){
-        String sql = "DELETE patient WHERE id_patient = ?";
+        String sql = "DELETE FROM patient WHERE id_patient = ?";
 
         try{
             PreparedStatement stmt = conn.prepareStatement(sql);
@@ -96,7 +96,7 @@ public class PatienDao {
 
         while (result.next()) {
             patient = new  Patient(result.getString("nom"), result.getString("prenom"), result.getObject("date_naissance", LocalDate.class),  result.getString("telephone"),  result.getString("adresse"));
-
+            patient.setId(result.getInt("id_patient"));
             listData.add(patient);
         }
         

@@ -6,20 +6,22 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<AnchorPane fx:id="patientPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="927.0" prefWidth="1023.0" style="-fx-background-color: #F8F9FF;" stylesheets="@../../assets/css/main.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.patientController">
+<AnchorPane fx:id="patientPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="927.0" prefWidth="1083.0" style="-fx-background-color: #F8F9FF;" stylesheets="@../../assets/css/main.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.patientController">
    <children>
-      <AnchorPane layoutX="16.0" layoutY="19.0" maxWidth="1.7976931348623157E308" prefHeight="413.0" prefWidth="993.0" AnchorPane.bottomAnchor="496.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="19.0">
+      <AnchorPane layoutX="16.0" layoutY="19.0" maxWidth="1.7976931348623157E308" prefHeight="412.0" prefWidth="1223.0" AnchorPane.bottomAnchor="496.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="19.0">
          <children>
             <Label layoutX="22.0" layoutY="50.0" prefHeight="25.0" prefWidth="547.0" styleClass="custom-text" stylesheets="@../../assets/css/patient.css" text="Enregistrement d'un nouvel individu dans la base de données médicale">
                <opaqueInsets>
@@ -75,7 +77,7 @@
                               <VBox layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" prefHeight="83.0" prefWidth="483.0" GridPane.columnIndex="1">
                                  <children>
                                     <Label maxWidth="1.7976931348623157E308" styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Prenom :" />
-                                    <TextField fx:id="prenPatient" maxWidth="1.7976931348623157E308" prefHeight="49.0" prefWidth="474.0" stylesheets="@../../assets/css/main.css">
+                                    <TextField fx:id="prenPatient" focusTraversable="false" maxWidth="1.7976931348623157E308" prefHeight="49.0" prefWidth="474.0" stylesheets="@../../assets/css/main.css">
                                        <VBox.margin>
                                           <Insets />
                                        </VBox.margin>
@@ -120,7 +122,7 @@
                               <VBox maxWidth="1.7976931348623157E308" prefHeight="82.0" prefWidth="334.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <children>
                                     <Label maxWidth="1.7976931348623157E308" styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Téléphone :" />
-                                    <TextField fx:id="telPatient" maxWidth="1.7976931348623157E308" prefHeight="49.0" prefWidth="474.0" stylesheets="@../../assets/css/main.css">
+                                    <TextField fx:id="telPatient" focusTraversable="false" maxWidth="1.7976931348623157E308" prefHeight="49.0" prefWidth="474.0" stylesheets="@../../assets/css/main.css">
                                        <styleClass>
                                           <String fx:value="custom-textField" />
                                           <String fx:value="radius-btn" />
@@ -195,12 +197,12 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="17.0" layoutY="420.0" prefHeight="481.0" prefWidth="992.0" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="420.0">
+      <AnchorPane layoutX="17.0" layoutY="420.0" prefHeight="480.0" prefWidth="1209.0" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="29.0" AnchorPane.topAnchor="420.0">
          <children>
-            <GridPane layoutX="15.0" layoutY="14.0" prefHeight="467.0" prefWidth="961.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="14.0">
+            <GridPane layoutX="15.0" layoutY="14.0" prefHeight="466.0" prefWidth="1019.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="14.0">
                <columnConstraints>
-                  <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
-                  <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+                  <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="693.0" />
+                  <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="10.0" prefWidth="500.0" />
                </columnConstraints>
                <rowConstraints>
                   <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
@@ -208,14 +210,14 @@
                <children>
                   <TableView fx:id="tablePatient" maxWidth="1.7976931348623157E308" prefHeight="458.0" prefWidth="568.0" styleClass="custom-table-view" stylesheets="@../../assets/css/main.css" GridPane.hgrow="ALWAYS">
                     <columns>
-                      <TableColumn fx:id="tablePatient_col_name" prefWidth="353.0" text="Nom et prénom(s)" />
+                      <TableColumn fx:id="tablePatient_col_name" prefWidth="290.0" text="Nom et prénom(s)" />
                       <TableColumn fx:id="tablePatient_col_contact" editable="false" prefWidth="223.0" text="Contact" />
                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
-                  <AnchorPane maxWidth="1.7976931348623157E308" prefHeight="459.0" prefWidth="376.0" stylesheets="@../../assets/css/patient.css" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS">
+                  <AnchorPane fx:id="infoPane" disable="true" maxWidth="1.7976931348623157E308" prefHeight="466.0" prefWidth="413.0" stylesheets="@../../assets/css/patient.css" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                      <styleClass>
                         <String fx:value="panel" />
                         <String fx:value="bo" />
@@ -225,7 +227,92 @@
                         <Insets left="20.0" />
                      </GridPane.margin>
                      <children>
-                        <Label layoutX="33.0" layoutY="14.0" styleClass="main-label" stylesheets="@../../assets/css/patient.css" text="Informations du patient " />
+                        <Separator layoutX="11.0" layoutY="63.0" maxWidth="1.7976931348623157E308" opacity="0.95" prefHeight="2.0" prefWidth="347.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="52.0" />
+                        <Label layoutX="20.0" layoutY="14.0" styleClass="main-label" stylesheets="@../../assets/css/patient.css" text="Informations du patient " AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="14.0" />
+                        <AnchorPane layoutX="13.0" layoutY="54.0" maxHeight="1.7976931348623157E308" prefHeight="408.0" prefWidth="461.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="52.0">
+                           <children>
+                              <GridPane layoutX="7.0" layoutY="25.0" maxHeight="1.7976931348623157E308" prefHeight="381.0" prefWidth="370.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="-8.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="25.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="192.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="45.0" minHeight="-Infinity" prefHeight="45.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="45.0" minHeight="-Infinity" prefHeight="45.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="45.0" minHeight="-Infinity" prefHeight="45.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="101.0" minHeight="-Infinity" prefHeight="45.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="45.0" minHeight="-Infinity" prefHeight="45.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="146.0" vgrow="ALWAYS" />
+                                </rowConstraints>
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="369.0" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label maxWidth="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="82.0" styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Prenom :" HBox.hgrow="NEVER">
+                                             <padding>
+                                                <Insets right="10.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label fx:id="labPrenom" maxWidth="-Infinity" prefHeight="44.0" prefWidth="360.0" styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Empty" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="369.0">
+                                       <children>
+                                          <Label maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="44.0" styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Nom :">
+                                             <padding>
+                                                <Insets right="10.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label fx:id="labNom" prefHeight="44.0" prefWidth="280.0" styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Empty">
+                                             <padding>
+                                                <Insets right="10.0" />
+                                             </padding>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="50.0" prefHeight="48.0" prefWidth="369.0" GridPane.rowIndex="3">
+                                       <children>
+                                          <Label maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="86.0" styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Contact :">
+                                             <padding>
+                                                <Insets right="10.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label fx:id="labContact" maxWidth="1.7976931348623157E308" prefHeight="44.0" prefWidth="286.0" styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Empty" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="95.0" prefHeight="48.0" prefWidth="369.0" GridPane.rowIndex="4">
+                                       <children>
+                                          <Label maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="84.0" styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Adresse :">
+                                             <padding>
+                                                <Insets right="10.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label fx:id="labAdrs" maxWidth="1.7976931348623157E308" prefHeight="44.0" prefWidth="286.0" styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Empty" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="110.0" prefHeight="48.0" prefWidth="369.0" GridPane.rowIndex="2">
+                                       <children>
+                                          <Label maxWidth="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="170.0" styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Date de naissance :">
+                                             <padding>
+                                                <Insets right="10.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label fx:id="labDateNaiss" maxWidth="1.7976931348623157E308" prefHeight="44.0" prefWidth="270.0" styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Empty" />
+                                       </children>
+                                    </HBox>
+                                    <AnchorPane maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="5">
+                                       <children>
+                                          <FontIcon fx:id="btnDelete" iconColor="#d35151" iconLiteral="fas-trash-alt" iconSize="24" layoutX="320.0" layoutY="138.0" onMouseClicked="#supprimerPatient" AnchorPane.bottomAnchor="14.96875" AnchorPane.rightAnchor="14.0" />
+                                          <FontIcon fx:id="btnEdit" iconColor="#0f766e" iconLiteral="fas-file-signature" iconSize="24" layoutX="260.0" layoutY="138.0" AnchorPane.bottomAnchor="14.484375" AnchorPane.rightAnchor="68.0" />
+                                          <Label layoutX="5.0" layoutY="78.0" styleClass="form-label" stylesheets="@../../assets/css/main.css" text="Actions :" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="5.0" />
+                                          <Separator layoutX="5.0" layoutY="101.0" maxWidth="1.7976931348623157E308" opacity="0.95" prefHeight="2.0" prefWidth="347.0" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="3.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </GridPane>
+                           </children>
+                           <padding>
+                              <Insets left="15.0" />
+                           </padding>
+                        </AnchorPane>
                      </children>
                   </AnchorPane>
                </children>

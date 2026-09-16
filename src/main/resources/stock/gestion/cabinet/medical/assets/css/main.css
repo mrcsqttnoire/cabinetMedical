@@ -127,12 +127,19 @@
     -fx-padding: 10px 10px;
     -fx-alignment: top-left;
 }
+.table-row-cell:odd {
+    -fx-background-color: #fafafa;
+}
+
+.table-row-cell:even {
+    -fx-background-color: white;
+}
 .table-row-cell:hover {
     -fx-background-color: #f0f8f7;
 }
 
 .table-row-cell:selected {
-    -fx-background-color: #0f766d8c; /* le vert-bleu de ta maquette MEDCABINET */
+    -fx-background-color: #0f766d8c;
     -fx-text-fill: white;
 }
 
