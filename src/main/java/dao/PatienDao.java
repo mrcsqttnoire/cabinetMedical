@@ -3,11 +3,9 @@ package dao;
 
 import java.sql.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 import controller.mainController;
 import model.patient_class.Patient;
-import db.DBConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
@@ -108,4 +106,24 @@ public class PatienDao {
 
     } 
 
+    public Patient findById(int id) {
+    Patient patient = null;
+    String sql = "SELECT * FROM patient WHERE id_patient = ?";
+
+    try {
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setInt(1, id);
+        ResultSet result = stmt.executeQuery();
+
+        if (result.next()) {
+            patient = new Patient(result.getString("nom"), result.getString("prenom"), result.getObject("date_naissance", LocalDate.class), result.getString("telephone"), result.getString("adresse"));
+            patient.setId(result.getInt("id_patient"));
+        }
+
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+    return patient;
+}
 }

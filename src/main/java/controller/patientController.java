@@ -274,6 +274,5 @@ public class patientController implements Initializable {
             }
         }
         // System.out.println(patientSelectionne.getId());
-
     }
 }
