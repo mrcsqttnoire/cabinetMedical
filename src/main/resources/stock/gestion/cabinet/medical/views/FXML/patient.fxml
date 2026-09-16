@@ -23,12 +23,12 @@
    <children>
       <AnchorPane layoutX="16.0" layoutY="19.0" maxWidth="1.7976931348623157E308" prefHeight="412.0" prefWidth="1223.0" AnchorPane.bottomAnchor="496.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="19.0">
          <children>
-            <Label layoutX="22.0" layoutY="50.0" prefHeight="25.0" prefWidth="547.0" styleClass="custom-text" stylesheets="@../../assets/css/patient.css" text="Enregistrement d'un nouvel individu dans la base de données médicale">
+            <Label fx:id="libText" layoutX="22.0" layoutY="50.0" prefHeight="25.0" prefWidth="547.0" styleClass="custom-text" stylesheets="@../../assets/css/patient.css" text="Enregistrement d'un nouvel individu dans la base de données médicale">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </Label>
-            <Label layoutX="22.0" layoutY="14.0" styleClass="main-label" stylesheets="@../../assets/css/main.css" text="Nouveau patient" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="14.0" />
+            <Label fx:id="libTitle" layoutX="22.0" layoutY="14.0" styleClass="main-label" stylesheets="@../../assets/css/main.css" text="Nouveau patient" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="14.0" />
             <AnchorPane layoutX="16.0" layoutY="94.0" prefHeight="290.0" prefWidth="961.0" stylesheets="@../../assets/css/patient.css" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="94.0">
                <children>
                   <GridPane maxWidth="1.7976931348623157E308" prefHeight="246.0" prefWidth="961.0" styleClass="radius" stylesheets="@../../assets/css/patient.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -177,6 +177,21 @@
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
                                           </Button>
+                                          <Button fx:id="btnValider" alignment="CENTER" contentDisplay="CENTER" layoutX="214.0" layoutY="31.0" mnemonicParsing="false" onAction="#modifierPatient" prefHeight="40.0" prefWidth="192.0" text="Valider" textFill="WHITE" visible="false" GridPane.columnIndex="1">
+                                             <font>
+                                                <Font name="Arial" size="14.0" />
+                                             </font>
+                                             <styleClass>
+                                                <String fx:value="btn-primary" />
+                                                <String fx:value="radius-btn" />
+                                             </styleClass>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Button>
                                        </children>
                                     </GridPane>
                                  </children>
@@ -301,7 +316,7 @@
                                     <AnchorPane maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="5">
                                        <children>
                                           <FontIcon fx:id="btnDelete" iconColor="#d35151" iconLiteral="fas-trash-alt" iconSize="24" layoutX="320.0" layoutY="138.0" onMouseClicked="#supprimerPatient" AnchorPane.bottomAnchor="14.96875" AnchorPane.rightAnchor="14.0" />
-                                          <FontIcon fx:id="btnEdit" iconColor="#0f766e" iconLiteral="fas-file-signature" iconSize="24" layoutX="260.0" layoutY="138.0" AnchorPane.bottomAnchor="14.484375" AnchorPane.rightAnchor="68.0" />
+                                          <FontIcon fx:id="btnEdit" iconColor="#0f766e" iconLiteral="fas-file-signature" iconSize="24" layoutX="260.0" layoutY="138.0" onMouseClicked="#fileToView" AnchorPane.bottomAnchor="14.484375" AnchorPane.rightAnchor="68.0" />
                                           <Label layoutX="5.0" layoutY="78.0" styleClass="form-label" stylesheets="@../../assets/css/main.css" text="Actions :" AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="5.0" />
                                           <Separator layoutX="5.0" layoutY="101.0" maxWidth="1.7976931348623157E308" opacity="0.95" prefHeight="2.0" prefWidth="347.0" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="3.0" />
                                        </children>

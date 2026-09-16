@@ -85,6 +85,15 @@ public class patientController implements Initializable {
     @FXML
     private AnchorPane infoPane;
 
+        @FXML
+    private Label libText;
+
+    @FXML
+    private Label libTitle;
+    
+    @FXML
+    private Button btnValider;
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         mainController.Uppercase(nomPatient);
@@ -148,7 +157,11 @@ public class patientController implements Initializable {
 
     @FXML
     public void annuleNouveauPatient() {
+        libTitle.setText("Nouveau patient");
+        libText.setText("Enregistrement d'un nouvel individu dans la base de données médicale");
         mainController.viderChamps(dateNaissPatient, nomPatient, prenPatient, adrsPatient, telPatient);
+        btnAjouter.setVisible(true);
+        btnValider.setVisible(false);
     }
 
     public ObservableList<Patient> patientsList;
@@ -183,7 +196,69 @@ public class patientController implements Initializable {
         labAdrs.setText(patient.getAdresse());
     }
 
+    @FXML 
+    public void fileToView(){
+        libTitle.setText("Modifier un patient");
+        libText.setText("Modification d'un individu de la base de données");
 
+        nomPatient.setText(patientSelectionne.getNom());
+        prenPatient.setText(patientSelectionne.getPrenom());
+        telPatient.setText(patientSelectionne.getTelephone());
+        dateNaissPatient.setValue(patientSelectionne.getDateNaiss());
+        adrsPatient.setText(patientSelectionne.getAdresse());
+
+        btnValider.setVisible(true);
+        btnAjouter.setVisible(false);
+
+    }
+    @FXML 
+    public void modifierPatient(){
+        try {
+            String nom = nomPatient.getText();
+            String prenom = prenPatient.getText();
+            // LocalDate dateNaiss = dateNaissPatient.getValue();
+            LocalDate dateNaiss;
+            String texteDate = dateNaissPatient.getEditor().getText();
+            String adresse = adrsPatient.getText();
+            String contact = telPatient.getText();
+
+            if (!nom.isEmpty() && !prenom.isEmpty() && texteDate != null
+                    || texteDate.isEmpty() && !adresse.isEmpty() && !contact.isEmpty()) {
+                try {
+                    dateNaiss = dateNaissPatient.getConverter().fromString(texteDate);
+                    dateNaissPatient.setValue(dateNaiss);
+                } catch (DateTimeParseException e) {
+                    mainController.showAlert("Format de date invalide", Alert.AlertType.ERROR).show();
+                    return;
+                }
+
+                if (dateNaiss.isAfter(dateDuJour)) {
+                    mainController
+                            .showAlert("La date de naissance ne peut pas être dans le futur !", Alert.AlertType.ERROR)
+                            .show();
+                    return;
+                } else {
+                    Patient patient = new Patient(nom, prenom, dateNaiss, contact, adresse);
+                    patient.setId(patientSelectionne.getId());
+                    PatienDao dao = new PatienDao();
+                    if (dao.modifierPatient(patient)) {
+                        msg = "Modification avec succès";
+                        type = AlertType.INFORMATION;
+                        mainController.showAlert(msg, type).show();
+                        annuleNouveauPatient();
+                        patientShowData();
+                    }
+                }
+            } else {
+                msg = "Veuillez remplir tous les champs";
+                type = AlertType.WARNING;
+                mainController.showAlert(msg, type).showAndWait();
+            }
+        } catch (Exception err) {
+            mainController.showAlert("Erreur : " + err.getMessage(), Alert.AlertType.ERROR);
+            err.printStackTrace();
+        }
+    }
 
     @FXML 
     public void supprimerPatient(){
