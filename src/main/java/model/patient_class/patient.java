@@ -1,12 +1,14 @@
 
 package model.patient_class;
 
+import java.time.LocalDate;
+
 public class Patient {
     private int id; 
-    private String nom, prenom, date_naiss, telephone, adresse;
+    private String nom, prenom, telephone, adresse;
+    private LocalDate date_naiss;
     
-    public Patient(int id, String nom, String prenom, String date_naiss, String telephone, String adresse){
-        this.id = id;
+    public Patient(String nom, String prenom, LocalDate date_naiss, String telephone, String adresse){
         this.nom = nom;
         this.prenom = prenom;
         this.date_naiss = date_naiss;
@@ -23,7 +25,7 @@ public class Patient {
     public String getPrenom(){
         return this.prenom;
     }
-    public String getDateNaiss(){
+    public LocalDate getDateNaiss(){
         return this.date_naiss;
     }
     public String getTelephone(){
@@ -42,7 +44,7 @@ public class Patient {
     public void setPrenom(String prenom){
         this.prenom = prenom;
     }
-    public void setDateNaiss(String date_naiss){
+    public void setDateNaiss(LocalDate date_naiss){
         this.date_naiss = date_naiss;
     }
     public void setTelephone(String telephone){

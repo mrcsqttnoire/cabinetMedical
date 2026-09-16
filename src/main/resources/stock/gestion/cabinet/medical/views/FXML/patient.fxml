@@ -61,7 +61,11 @@
                                        <styleClass>
                                           <String fx:value="custom-textField" />
                                           <String fx:value="radius-btn" />
+                                          <String fx:value="nom-field" />
                                        </styleClass>
+                                       <cursor>
+                                          <Cursor fx:constant="TEXT" />
+                                       </cursor>
                                     </TextField>
                                  </children>
                                  <GridPane.margin>
@@ -138,7 +142,7 @@
                                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                       </rowConstraints>
                                        <children>
-                                          <Button fx:id="btnAjouter" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="192.0" text="Ajouter" textFill="WHITE" GridPane.columnIndex="1">
+                                          <Button fx:id="btnAjouter" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#ajouterPatient" prefHeight="40.0" prefWidth="192.0" text="Ajouter" textFill="WHITE" GridPane.columnIndex="1">
                                              <font>
                                                 <Font name="Arial" size="14.0" />
                                              </font>

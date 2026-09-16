@@ -3,29 +3,32 @@ package dao;
 
 import java.sql.*;
 
+import controller.mainController;
 import model.patient_class.Patient;
 import db.DBConnection;
+import javafx.scene.control.Alert;
 
-public class patient_dao {
+public class PatienDao {
     private Connection conn;
     
-    public patient_dao(){
+    public PatienDao(){
         try{
             conn  = db.DBConnection.getConnection();
         }
-        catch(SQLException e){
+        catch(Exception e){
+            mainController.showAlert("Erreur : " + e.getMessage(), Alert.AlertType.ERROR);
             e.printStackTrace();
         }
     }
     
-    public boolean ajouterPatient(Patient patient){
+    public   boolean ajouterPatient(Patient patient){
         String sql = "INSERT INTO patient(nom, prenom, date_naissance, telephone, adresse) VALUES (?,?,?,?,?)";
         
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, patient.getNom());
             stmt.setString(2, patient.getPrenom());
-            stmt.setString(3, patient.getDateNaiss());
+            stmt.setObject(3, patient.getDateNaiss());
             stmt.setString(4, patient.getTelephone());
             stmt.setString(5, patient.getAdresse());
             
@@ -46,7 +49,7 @@ public class patient_dao {
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, patient.getNom());
             stmt.setString(2, patient.getPrenom());
-            stmt.setString(3, patient.getDateNaiss());
+            stmt.setObject(3, patient.getDateNaiss());
             stmt.setString(4, patient.getTelephone());
             stmt.setString(5, patient.getAdresse());
             stmt.setInt(6, patient.getId());

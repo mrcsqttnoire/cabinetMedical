@@ -16,6 +16,10 @@
     -fx-text-fill : -text-color;
 }
 
+.nom-field{
+    -fx-font-scale : uppercase;
+}
+
 .panel{
     -fx-background-color : #FFF;
     -fx-border-radius : 10px;
