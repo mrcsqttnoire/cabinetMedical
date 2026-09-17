@@ -2,8 +2,10 @@ package stock.gestion.cabinet.medical;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -17,14 +19,24 @@ public class App extends Application {
 
     @Override
     // public void init() throws Exception {
-    //     Font regular = Font.loadFont(getClass().getResourceAsStream("/stock/gestion/cabinet/medical/assets/fonts/OpenSans/OpenSans-Regular.ttf"), 14);
-    //     System.out.println(regular != null ? "Chargée : " + regular.getName() : "ÉCHEC : Poppins-Regular introuvable");
+    // Font regular =
+    // Font.loadFont(getClass().getResourceAsStream("/stock/gestion/cabinet/medical/assets/fonts/OpenSans/OpenSans-Regular.ttf"),
+    // 14);
+    // System.out.println(regular != null ? "Chargée : " + regular.getName() :
+    // "ÉCHEC : Poppins-Regular introuvable");
     // }
 
     public void start(Stage stage) throws IOException {
 
         scene = new Scene(loadFXML("main"), 1280, 990);
         stage.setScene(scene);
+
+        // Rectangle2D ecranVisible = Screen.getPrimary().getVisualBounds();
+
+        stage.setMaximized(true); 
+        stage.setMinWidth(1024);
+        stage.setMinHeight(700);
+
         stage.show();
     }
 
