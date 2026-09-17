@@ -121,4 +121,35 @@ public class ConsultationDao {
         return listData;
 
     }
+
+    
+    public Consultation findById(int id) {
+        Consultation c = null;
+        String sql = "SELECT * FROM consultation WHERE id_consultation = ?";
+
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, id);
+            ResultSet result = stmt.executeQuery();
+
+            if (result.next()) {
+                int idPatient = result.getInt("id_patient");
+                Patient patient = new PatienDao().findById(idPatient);
+                
+                int idRdv = result.getInt("id_rdv");
+                boolean isRdvNull = result.wasNull();
+
+                c = new Consultation(result.getObject("date_consultation", LocalDate.class), result.getString("diagnostic"), result.getString("prescription"), patient);
+                if (!isRdvNull) {
+                    RendezVous rdv = new RendezVousDao().findById(idRdv);
+                    c.setRendezVous(rdv);
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return c;
+    }
 }
