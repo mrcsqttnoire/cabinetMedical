@@ -44,7 +44,7 @@ public class RendezVousDao {
     }
 
     public boolean modifierRdv(RendezVous rdv) {
-        String sql = "UPDATE rendez_vous SET date_rdv = ?, heure_rdv = ?, motif = ?, statut = ?, id_patient = ?";
+        String sql = "UPDATE rendez_vous SET date_rdv = ?, heure_rdv = ?, motif = ?, statut = ?, id_patient = ? WHERE id_rdv = ?";
 
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
@@ -53,6 +53,7 @@ public class RendezVousDao {
             stmt.setString(3, rdv.getMotif());
             stmt.setString(4, rdv.getStatus());
             stmt.setObject(5, rdv.getPatient().getId());
+            stmt.setInt(6, rdv.getId());
 
             System.out.println("Rendez-vous modifié avec succès");
             return stmt.executeUpdate() > 0;

@@ -48,7 +48,7 @@ public class ConsultationDao {
     }
 
     public boolean modifierConsultation(Consultation consultation) {
-        String sql = "UPDATE consultation SET date_consultation = ?, diagnostic = ?, prescription = ?, id_patient = ?, id_rdv = ?";
+        String sql = "UPDATE consultation SET date_consultation = ?, diagnostic = ?, prescription = ?, id_patient = ?, id_rdv = ? WHERE id_consultation = ?";
 
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
@@ -61,6 +61,7 @@ public class ConsultationDao {
             } else {
                 stmt.setNull(5, java.sql.Types.INTEGER);
             }
+            stmt.setInt(6, consultation.getId());
 
             System.out.println("Consultation modifiée avec succès");
             return stmt.executeUpdate() > 0;
