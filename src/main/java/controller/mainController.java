@@ -8,6 +8,8 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.ResourceBundle;
 
+import org.kordamp.ikonli.javafx.FontIcon;
+
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
@@ -20,6 +22,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import stock.gestion.cabinet.medical.App;
 
 import java.io.IOException;
@@ -51,27 +54,63 @@ public class mainController implements Initializable {
     private TextField search;
 
     @FXML
+    private FontIcon iconConsultaiton;
+
+    @FXML
+    private FontIcon iconDashboard;
+
+    @FXML
+    private FontIcon iconFac;
+
+    @FXML
+    private FontIcon iconPatient;
+
+    @FXML
     private void fenDashboard() throws IOException {
         Parent dashboardView = App.loadFXML("dashboard");
         contentArea.getChildren().setAll(dashboardView);
+        activeMenu(dashboardBtn, iconDashboard);
     }
 
     @FXML
     private void fenPatient() throws IOException {
         Parent patientView = App.loadFXML("patient");
         contentArea.getChildren().setAll(patientView);
+        activeMenu(patientBtn, iconPatient);
+
     }
 
     @FXML
-    private void fenCosultaiton() throws IOException {
-        Parent consultaionView = App.loadFXML("consultaion");
+    private void fenCosultaition() throws IOException {
+        Parent consultaionView = App.loadFXML("consultation");
         contentArea.getChildren().setAll(consultaionView);
+        activeMenu(consultationBtn, iconConsultaiton);
     }
 
     @FXML
     private void fenFacturation() throws IOException {
-        Parent facView = App.loadFXML("facturaton");
+        Parent facView = App.loadFXML("facturation");
         contentArea.getChildren().setAll(facView);
+        activeMenu(facturationBtn, iconFac);
+    }
+
+    @FXML 
+    private void fenRendezVous() throws IOException {
+        Parent facView = App.loadFXML("rendezVous");
+        contentArea.getChildren().setAll(facView);
+    }
+
+    private Button latestBtn;
+    private FontIcon latestIcon;
+    public void activeMenu(Button btn, FontIcon icon){
+        btn.setTextFill(Color.web("#0F766E"));
+        icon.setIconColor(Color.web("#0F766E")); 
+        if (this.latestBtn != null && this.latestIcon != null){
+            this.latestBtn.setTextFill(Color.web("#3e4947"));
+            this.latestIcon.setIconColor(Color.web("#3e4947")); 
+        }
+        this.latestBtn = btn;
+        this.latestIcon = icon;
     }
 
     public static Alert showAlert(String message, Alert.AlertType type) {

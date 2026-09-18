@@ -12,12 +12,12 @@ public class RendezVous {
     private String motif, status;
     private Patient patient;
 
-    public RendezVous(LocalDate dateRdv, LocalTime heureRdv, String motif, String status, Patient Patient){
+    public RendezVous(LocalDate dateRdv, LocalTime heureRdv, String motif, String status, Patient p){
         this.dateRdv = dateRdv;
         this.heureRdv = heureRdv;
         this.motif = motif;
         this.status = status;
-        this.patient = patient;
+        this.patient = p;
     }
 
     public int getId(){

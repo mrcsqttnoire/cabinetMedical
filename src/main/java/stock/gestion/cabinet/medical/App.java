@@ -2,10 +2,8 @@ package stock.gestion.cabinet.medical;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -31,10 +29,8 @@ public class App extends Application {
         scene = new Scene(loadFXML("main"), 1280, 990);
         stage.setScene(scene);
 
-        // Rectangle2D ecranVisible = Screen.getPrimary().getVisualBounds();
-
         stage.setMaximized(true); 
-        stage.setMinWidth(1024);
+        stage.setMinWidth(1280);
         stage.setMinHeight(700);
 
         stage.show();

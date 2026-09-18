@@ -266,6 +266,7 @@ public class patientController implements Initializable {
                 if(dao.supprimerPatient(patientSelectionne)){
                     patientsList.remove(patientSelectionne);    
                     mainController.showAlert("Patient supprimé", Alert.AlertType.INFORMATION).show();
+                    annuleNouveauPatient();
                 }
             } catch (Exception err){
                 err.printStackTrace();

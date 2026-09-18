@@ -46,7 +46,9 @@
     -fx-font-size : 14px;
     -fx-text-fill : -primary-color;
 }
-
+.FontIcon{
+    -fx-background-color : -primary-color;
+}
 .header{
     -fx-border-color : -border-color;
     -fx-border-width : .5px 0px .5px 0px;
@@ -120,7 +122,7 @@
 
 .table-row-cell {
     -fx-background-color: white;
-    -fx-border-color: transparent transparent #e0e0e0 transparent;
+    /* -fx-border-color: transparent transparent #e0e0e0 transparent; */
     -fx-border-width: 0 0 1 0;
     -fx-font-family: "Open Sans Medium";
     -fx-font-size : 16px;   
