@@ -5,6 +5,20 @@
     -fx-font-size : 16px;
 }
 
+.info-label{
+    -fx-text-fill : -label-color;
+}
+.info-text{
+    -fx-font-family : "Poppins Bold";
+    -fx-font-size : 16px;
+    -fx-wrap-text : true;
+}
+.info-text-2{
+    -fx-font-family : "Poppins Medium";
+    -fx-font-size : 16px;
+    -fx-text-fill : -primary-color;
+    -fx-wrap-text : true;
+}
 .custom-text{
     -fx-font-family : "Open Sans Regular";
     -fx-font-size : 16px;

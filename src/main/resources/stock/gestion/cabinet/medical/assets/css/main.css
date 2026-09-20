@@ -18,10 +18,23 @@
     -primary-color: #0F766E;
     -bg-color: #F8F9FF;
     -neutral-color: #f4f4f4;
+
+    -label-color: #94A3B8;
     -text-color : #3E4947;
-    -border-color : #BDC9C6;
+    -border-color : #E2E8F0;
 
 }
+.bg-primary{
+    -fx-background-color : #F8F9FF;
+}
+.panel{
+    -fx-background-color : #FFF;
+    -fx-border-radius : 10px;
+    -fx-background-radius : 10px;
+    -fx-border-width : .5px;
+}
+
+
 .logo{
     -fx-font-family : "Poppins SemiBold";
 }
@@ -76,6 +89,8 @@
 .custom-textField{
     -fx-font-family : "Poppins Medium";
     -fx-font-size : 14px;
+    -fx-background-color : transparent;
+    -fx-effect : none;
 }
 
 .main-label{
@@ -90,6 +105,7 @@
 
 .radius{
     -fx-background-radius : 10px;
+    -fx-border-radius : 10px;
 }
 .radius-btn{
     -fx-background-radius : 7px;
@@ -119,6 +135,48 @@
     -fx-font-family : "Poppins Bold";
 }
 
+.date-picker .arrow-button {
+    -fx-background-color: -primary-color;
+    -fx-border-radius : 10px;
+    -fx-background-radius : 10px;
+}
+.date-picker-popup .month-year-pane {
+    -fx-background-color: -primary-color;
+    -fx-text-fill: white;
+    -fx-background-radius : 10px;
+}
+.date-picker-popup .day-cell:selected {
+    -fx-background-color: -primary-color;
+    -fx-border-color : -border-color;
+}
+.date-picker-popup {
+    -fx-background-color: -bg-color;
+    -fx-background-radius : 10px;
+    -fx-effect : dropshadow( gaussian , rgba(0,0,0,0.2) , 12, 0.0 , 0 , 8 );;
+    
+}
+.date-picker > .text-field {
+    -fx-background-color : white;
+    -fx-background-radius : 10px;
+}
+
+.text-field:focused,
+.date-picker:focused,
+.text-area:focused {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-background-insets: 0;
+}
+
+.text-area {
+    -fx-wrap-text : true;
+}
+
+.text-area .content{
+    -fx-background-color : white;
+    -fx-background-radius : 10px;
+    -fx-text-fill : #000;
+}
 
 .table-row-cell {
     -fx-background-color: white;
@@ -152,4 +210,8 @@
 }
 #tablePatient_col_contact{
     -fx-alignment: top-center;
+}
+
+.date-bg{
+    
 }

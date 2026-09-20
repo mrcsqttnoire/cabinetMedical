@@ -55,6 +55,8 @@
                                  <styleClass>
                                     <String fx:value="custom-textField" />
                                     <String fx:value="custom-label-d" />
+                                    <String fx:value="bo" />
+                                    <String fx:value="radius" />
                                  </styleClass>
                               </TextField>
                               <FontIcon iconLiteral="fas-search" layoutX="10.0" layoutY="17.2421875" AnchorPane.bottomAnchor="10.484375" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="6.484375" />
@@ -119,7 +121,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <FontIcon fx:id="iconConsultaiton" iconColor="#3e4947" iconLiteral="fas-file-medical" iconSize="24" layoutX="26.0" layoutY="35.0" />
+                              <FontIcon fx:id="iconConsultaiton" iconColor="#3e4947" iconLiteral="fas-stethoscope" iconSize="24" layoutX="23.0" layoutY="35.0" />
                            </children>
                         </AnchorPane>
                         <AnchorPane layoutX="1.0" layoutY="234.0" prefHeight="52.0" prefWidth="255.0">

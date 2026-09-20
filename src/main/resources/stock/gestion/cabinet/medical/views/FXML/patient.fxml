@@ -19,7 +19,7 @@
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<AnchorPane maxWidth="1.7976931348623157E308" minHeight="-1.0" minWidth="-Infinity" prefHeight="712.0" prefWidth="1023.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.patientController">
+<AnchorPane maxWidth="1.7976931348623157E308" minHeight="-1.0" minWidth="-Infinity" prefHeight="712.0" prefWidth="1023.0" styleClass="bg-primary" stylesheets="@../../assets/css/main.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.patientController">
    <children>
       <AnchorPane layoutX="16.0" layoutY="16.0" maxWidth="1.7976931348623157E308" prefHeight="337.0" prefWidth="974.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="16.0">
          <children>
@@ -62,8 +62,9 @@
                                     <TextField fx:id="nomPatient" maxWidth="1.7976931348623157E308" prefHeight="40.0" prefWidth="474.0" stylesheets="@../../assets/css/main.css">
                                        <styleClass>
                                           <String fx:value="custom-textField" />
-                                          <String fx:value="radius-btn" />
+                                          <String fx:value="radius" />
                                           <String fx:value="nom-field" />
+                                          <String fx:value="bo" />
                                        </styleClass>
                                        <cursor>
                                           <Cursor fx:constant="TEXT" />
@@ -83,7 +84,8 @@
                                        </VBox.margin>
                                        <styleClass>
                                           <String fx:value="custom-textField" />
-                                          <String fx:value="radius-btn" />
+                                          <String fx:value="radius" />
+                                          <String fx:value="bo" />
                                        </styleClass>
                                     </TextField>
                                  </children>
@@ -98,6 +100,8 @@
                                        <styleClass>
                                           <String fx:value="custom-textField" />
                                           <String fx:value="radius-btn" />
+                                          <String fx:value="bo" />
+                                          <String fx:value="radius" />
                                        </styleClass>
                                     </TextField>
                                  </children>
@@ -112,6 +116,8 @@
                                        <styleClass>
                                           <String fx:value="custom-textField" />
                                           <String fx:value="radius-btn" />
+                                          <String fx:value="radius" />
+                                          <String fx:value="bo" />
                                        </styleClass>
                                     </DatePicker>
                                  </children>
@@ -126,6 +132,8 @@
                                        <styleClass>
                                           <String fx:value="custom-textField" />
                                           <String fx:value="radius-btn" />
+                                          <String fx:value="bo" />
+                                          <String fx:value="radius" />
                                        </styleClass>
                                     </TextField>
                                  </children>
@@ -171,7 +179,7 @@
                                              </GridPane.margin>
                                              <styleClass>
                                                 <String fx:value="btn-secondary" />
-                                                <String fx:value="radius-btn" />
+                                                <String fx:value="radius" />
                                              </styleClass>
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
