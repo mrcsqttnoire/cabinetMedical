@@ -1,0 +1,31 @@
+@import url(main.css);
+
+.label-section{
+    -fx-font-family : "Poppins Medium";
+    -fx-font-size : 16px;
+    -fx-text-fill : -text-color;
+}
+
+.panel-2{
+    -fx-background-color : -bg-color;
+}
+
+.form-label-2{
+    -fx-text-fill : -text-color-2;
+}
+
+.head_section{
+    -fx-background-color : -primary-color;
+    -fx-background-radius : 10px 10px 0 0px ;
+}
+.head_text{
+    -fx-text-fill : -neutral-color;
+    -fx-font-family : "Poppins Bold";
+    -fx-font-size : 16px;
+}
+
+.head_btn{
+    -fx-text-fill : -primary-color;
+    -fx-font-family : "Poppins Medium";
+    -fx-font-size : 14px;
+}
