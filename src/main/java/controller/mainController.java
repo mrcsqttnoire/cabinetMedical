@@ -105,7 +105,7 @@ public class mainController implements Initializable {
     public void activeMenu(Button btn, FontIcon icon){
         btn.setTextFill(Color.web("#0F766E"));
         icon.setIconColor(Color.web("#0F766E")); 
-        if (this.latestBtn != null && this.latestIcon != null){
+        if (this.latestBtn != null && this.latestIcon != null && this.latestBtn != btn){
             this.latestBtn.setTextFill(Color.web("#3e4947"));
             this.latestIcon.setIconColor(Color.web("#3e4947")); 
         }
@@ -205,5 +205,6 @@ public class mainController implements Initializable {
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         runTime();
+        activeMenu(dashboardBtn, iconDashboard);
     }
 }

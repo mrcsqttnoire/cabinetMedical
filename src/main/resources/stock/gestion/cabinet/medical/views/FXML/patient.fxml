@@ -223,7 +223,7 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="18.0" layoutY="368.0" maxHeight="1.7976931348623157E308" prefHeight="320.0" prefWidth="978.0" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="27.0" AnchorPane.topAnchor="368.0">
+      <AnchorPane layoutX="18.0" layoutY="368.0" maxHeight="1.7976931348623157E308" prefWidth="978.0" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="27.0" AnchorPane.topAnchor="368.0">
          <children>
             <GridPane layoutX="14.0" layoutY="-10.0" maxWidth="1.7976931348623157E308" prefHeight="305.0" prefWidth="939.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="0.0">
                <columnConstraints>
