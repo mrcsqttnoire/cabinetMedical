@@ -8,14 +8,13 @@ import model.rendez_vous.RendezVous;
 public class Consultation {
     private int id;
     private LocalDate dateConsultation;
-    private String diagnostique, prescription;
+    private String diagnostique;
     private Patient patient;
     private RendezVous rdv;
 
-    public Consultation(LocalDate dtc, String diag, String presc, Patient patient){
+    public Consultation(LocalDate dtc, String diag, Patient patient){
         this.dateConsultation = dtc;
         this.diagnostique = diag;
-        this.prescription = presc;
         this.patient = patient;
     }
 
@@ -27,9 +26,6 @@ public class Consultation {
     }
     public String getDiagnostique(){
         return this.diagnostique;
-    }
-    public String getPrescription(){
-        return this.prescription;
     }
     public Patient getPatient(){
         return this.patient;
@@ -46,9 +42,6 @@ public class Consultation {
     }
     public void setDiagnostique(String diag){
         this.diagnostique = diag;
-    }
-    public void  setPrescription(String presc){
-        this.prescription = presc;
     }
     public void setPatient(Patient patient){
         this.patient = patient;

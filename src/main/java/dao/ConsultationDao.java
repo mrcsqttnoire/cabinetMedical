@@ -24,18 +24,17 @@ public class ConsultationDao {
     }
 
     public boolean ajouterConsultation(Consultation consultation) {
-        String sql = "INSERT INTO consultation(date_consultation, diagnostic, prescription, id_patient, id_rdv) VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO consultation(date_consultation, diagnostic, id_patient, id_rdv) VALUES (?,?,?,?)";
 
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setObject(1, consultation.getDateConsultation());
             stmt.setString(2, consultation.getDiagnostique());
-            stmt.setString(3, consultation.getPrescription());
-            stmt.setObject(4, consultation.getPatient().getId());
+            stmt.setObject(3, consultation.getPatient().getId());
             if (consultation.getRendezVous() != null) {
-                stmt.setObject(5, consultation.getRendezVous().getId());
+                stmt.setObject(4, consultation.getRendezVous().getId());
             } else {
-                stmt.setNull(5, java.sql.Types.INTEGER);
+                stmt.setNull(4, java.sql.Types.INTEGER);
             }
 
             System.out.println("Consultation ajoutée avec succès");
@@ -48,18 +47,17 @@ public class ConsultationDao {
     }
 
     public boolean modifierConsultation(Consultation consultation) {
-        String sql = "UPDATE consultation SET date_consultation = ?, diagnostic = ?, prescription = ?, id_patient = ?, id_rdv = ? WHERE id_consultation = ?";
+        String sql = "UPDATE consultation SET date_consultation = ?, diagnostic = ?, id_patient = ?, id_rdv = ? WHERE id_consultation = ?";
 
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setObject(1, consultation.getDateConsultation());
             stmt.setString(2, consultation.getDiagnostique());
-            stmt.setString(3, consultation.getPrescription());
-            stmt.setObject(4, consultation.getPatient().getId());
+            stmt.setObject(3, consultation.getPatient().getId());
             if (consultation.getRendezVous() != null) {
-                stmt.setObject(5, consultation.getRendezVous().getId());
+                stmt.setObject(3, consultation.getRendezVous().getId());
             } else {
-                stmt.setNull(5, java.sql.Types.INTEGER);
+                stmt.setNull(3, java.sql.Types.INTEGER);
             }
             stmt.setInt(6, consultation.getId());
 
@@ -105,7 +103,7 @@ public class ConsultationDao {
                 int idPatient = result.getInt("id_patient");
                 Patient patient = new PatienDao().findById(idPatient);
 
-                c = new Consultation(result.getObject("date_consultation", LocalDate.class), result.getString("diagnostic"), result.getString("prescription"), patient);
+                c = new Consultation(result.getObject("date_consultation", LocalDate.class), result.getString("diagnostic"), patient);
                 if (!isRdvNull) {
                     RendezVous rdv = new RendezVousDao().findById(idRdv);
                     c.setRendezVous(rdv);
@@ -139,7 +137,7 @@ public class ConsultationDao {
                 int idRdv = result.getInt("id_rdv");
                 boolean isRdvNull = result.wasNull();
 
-                c = new Consultation(result.getObject("date_consultation", LocalDate.class), result.getString("diagnostic"), result.getString("prescription"), patient);
+                c = new Consultation(result.getObject("date_consultation", LocalDate.class), result.getString("diagnostic"), patient);
                 if (!isRdvNull) {
                     RendezVous rdv = new RendezVousDao().findById(idRdv);
                     c.setRendezVous(rdv);

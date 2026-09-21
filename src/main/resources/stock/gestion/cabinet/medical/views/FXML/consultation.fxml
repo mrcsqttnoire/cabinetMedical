@@ -4,6 +4,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -91,7 +92,7 @@
                </columnConstraints>
                <rowConstraints>
                   <RowConstraints maxHeight="-Infinity" prefHeight="151.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="151.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="250.0" minHeight="10.0" prefHeight="151.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="151.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
@@ -229,6 +230,19 @@
                         <String fx:value="bo" />
                         <String fx:value="radius" />
                      </styleClass>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="15.0" />
+                     </padding>
+                     <children>
+                        <Label layoutX="58.0" layoutY="32.0" styleClass="label-section" text="DIAGNOSTIQUES MEDICALE :" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <TextArea layoutX="42.0" layoutY="-4.0" prefHeight="124.0" prefWidth="497.0" promptText="Détails de la maladie du patient...." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+                           <styleClass>
+                              <String fx:value="custom-textField" />
+                              <String fx:value="bo" />
+                              <String fx:value="radius" />
+                           </styleClass>
+                        </TextArea>
+                     </children>
                   </AnchorPane>
                   <AnchorPane layoutX="10.0" layoutY="181.0" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
                      <styleClass>
