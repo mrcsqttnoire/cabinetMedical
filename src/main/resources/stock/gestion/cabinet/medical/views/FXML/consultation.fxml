@@ -2,17 +2,21 @@
 
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="1023.0" styleClass="bg-primary" stylesheets="@../../assets/css/consultation.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="1023.0" styleClass="bg-primary" stylesheets="@../../assets/css/consultation.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.consultationController">
    <padding>
       <Insets bottom="20.0" left="32.0" right="32.0" top="20.0" />
    </padding>
@@ -250,6 +254,56 @@
                         <String fx:value="bo" />
                         <String fx:value="radius" />
                      </styleClass>
+                     <children>
+                        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutX="42.0" layoutY="28.0" prefHeight="111.0" prefWidth="514.0" style="-fx-background-color: transparent; -fx-border-width: 0;" stylesheets="@../../assets/css/main.css" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="72.0">
+                           <content>
+                              <VBox fx:id="prescriptionContainer" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="80.0" prefWidth="502.0" spacing="8.0" styleClass="custom-scroll-pane" stylesheets="@../../assets/css/main.css" />
+                           </content>
+                           <padding>
+                              <Insets top="8.0" />
+                           </padding>
+                        </ScrollPane>
+                        <Label layoutX="-46.0" layoutY="22.0" styleClass="label-section" text="PRESCRIPTION MEDICAMENTEUSE :" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <HBox fx:id="addLigne" layoutX="444.0" layoutY="16.0" spacing="10.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <FontIcon iconColor="#0f766e" iconLiteral="fas-plus" iconSize="18">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </FontIcon>
+                              <Label alignment="CENTER_RIGHT" onMouseClicked="#ajouterLignePrescription" styleClass="head_btn" text="Ajouter">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <AnchorPane maxWidth="1.7976931348623157E308" prefHeight="47.0" prefWidth="482.0" styleClass="head_section" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                           <children>
+                              <GridPane layoutY="11.0" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="11.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="171.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="132.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="179.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="25.0" prefWidth="172.0" styleClass="head_text" text="Médicaments" />
+                                    <Label alignment="CENTER" prefHeight="25.0" prefWidth="132.0" styleClass="head_text" text="Durée" GridPane.columnIndex="1" />
+                                    <Label alignment="CENTER" prefHeight="25.0" prefWidth="179.0" styleClass="head_text" text="Instructions" GridPane.columnIndex="2" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" top="15.0" />
+                     </padding>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
                   </AnchorPane>
                </children>
             </GridPane>

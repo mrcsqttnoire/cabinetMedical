@@ -166,7 +166,7 @@ public class mainController implements Initializable {
 
                     setDisable(true);
 
-                    setStyle("-fx-background-color: #ffcccc;");
+                    setStyle("-fx-background-color: #94A3B8;");
                 }
             }
         });

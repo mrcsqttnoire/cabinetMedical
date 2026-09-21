@@ -257,3 +257,33 @@
     -fx-border-radius : 10px;
     -fx-border-width : .5px;
 }
+    
+
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+.scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 10px; 
+}
+
+.scroll-bar:vertical .track {
+    -fx-background-color: -neutral-color;
+    -fx-background-radius: 10px;
+}   
+
+.scroll-bar:vertical .increment-button,
+.scroll-bar:vertical .decrement-button {
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+}
+.scroll-bar:vertical .increment-arrow,
+.scroll-bar:vertical .decrement-arrow {
+    -fx-shape: " ";
+    -fx-padding: 0;
+}
