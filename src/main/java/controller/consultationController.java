@@ -13,7 +13,7 @@ public class consultationController {
     private HBox addLigne;
 
     @FXML
-    private VBox prescriptionContainer;
+    public VBox prescriptionContainer;
 
     @FXML 
     public void ajouterLignePrescription() throws IOException{
