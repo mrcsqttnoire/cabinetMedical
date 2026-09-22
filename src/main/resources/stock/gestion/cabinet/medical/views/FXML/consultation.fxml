@@ -320,6 +320,20 @@
                   <String fx:value="bo" />
                   <String fx:value="radius" />
                </styleClass>
+               <children>
+                  <Label layoutX="25.0" layoutY="14.0" styleClass="label-section" text="Historiques Antérieures :" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <ScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutY="137.0" prefHeight="111.0" prefWidth="326.0" style="-fx-background-color: transparent; -fx-border-width: 0;" stylesheets="@../../assets/css/main.css" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0">
+                     <content>
+                        <VBox fx:id="historiqueContainer" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="80.0" prefWidth="502.0" spacing="15.0" styleClass="custom-scroll-pane" stylesheets="@../../assets/css/main.css" />
+                     </content>
+                     <padding>
+                        <Insets right="10.0" top="8.0" />
+                     </padding>
+                  </ScrollPane>
+               </children>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" top="15.0" />
+               </padding>
             </AnchorPane>
          </children>
       </GridPane>

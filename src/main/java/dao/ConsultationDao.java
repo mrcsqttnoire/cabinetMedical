@@ -171,4 +171,46 @@ public class ConsultationDao {
 
         return c;
     }
+    
+    public ObservableList<Consultation> getPatinetConsultation(Patient patient) {
+        ObservableList<Consultation> listData = FXCollections.observableArrayList();
+        String sql = "SELECT * FROM consultation WHERE id_patient = ? ORDER BY date_consultation DESC";
+
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, patient.getId());
+            ResultSet result = stmt.executeQuery();
+
+            while (result.next()) {
+                // int idPatient = result.getInt("id_patient");
+                // Patient patient = new PatientDao().findById(idPatient);
+
+                int idRdv = result.getInt("id_rdv");
+                boolean isRdvNull = result.wasNull();
+                Consultation c;
+
+                c = new Consultation(
+                        result.getObject("date_consultation",
+                                LocalDate.class),
+                        result.getString("diagnostic"),
+                        result.getString("tension"),
+                        result.getString("temperature"),
+                        result.getString("poid"),
+                        patient);
+                c.setId(result.getInt("id_consultation"));
+                if (!isRdvNull) {
+                    RendezVous rdv = new RendezVousDao().findById(idRdv);
+                    c.setRendezVous(rdv);
+                }
+
+                listData.add(c);
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return listData;
+    }
 }

@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -79,9 +80,6 @@ public class patientController implements Initializable {
     private Label labNom;
 
     @FXML
-    private Label labPrenom;
-
-    @FXML
     private AnchorPane infoPane;
 
     @FXML
@@ -89,9 +87,12 @@ public class patientController implements Initializable {
 
     @FXML
     private Label libTitle;
-    
+
     @FXML
     private Button btnValider;
+
+    @FXML
+    private Button btnConsulter;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -138,7 +139,8 @@ public class patientController implements Initializable {
                         msg = "Ajout avec succès";
                         type = AlertType.INFORMATION;
                         mainController.showAlert(msg, type).show();
-                        mainController.viderChamps(dateNaissPatient,nomPatient, prenPatient, adrsPatient, telPatient, (TextArea) null);
+                        mainController.viderChamps(dateNaissPatient, nomPatient, prenPatient, adrsPatient, telPatient,
+                                (TextArea) null);
                         patientShowData();
                     }
                 }
@@ -175,28 +177,28 @@ public class patientController implements Initializable {
         tablePatient.setItems(patientsList);
 
         tablePatient.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            if(newSelection != null){
+            if (newSelection != null) {
                 infoPane.setDisable(false);
                 afficheInfo(newSelection);
-            }else{
+            } else {
                 infoPane.setDisable(true);
             }
         });
     }
 
     private Patient patientSelectionne;
-    public void afficheInfo(Patient patient){
+
+    public void afficheInfo(Patient patient) {
         this.patientSelectionne = patient;
 
-        labNom.setText(patient.getNom());
-        labPrenom.setText(patient.getPrenom());
+        labNom.setText(patient.getNomPrenom());
         labContact.setText(patient.getTelephone());
         labDateNaiss.setText(patient.getDateNaiss().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
         labAdrs.setText(patient.getAdresse());
     }
 
-    @FXML 
-    public void fileToView(){
+    @FXML
+    public void fileToView() {
         libTitle.setText("Modifier un patient");
         libText.setText("Modification d'un individu de la base de données");
 
@@ -210,8 +212,9 @@ public class patientController implements Initializable {
         btnAjouter.setVisible(false);
 
     }
-    @FXML 
-    public void modifierPatient(){
+
+    @FXML
+    public void modifierPatient() {
         try {
             String nom = nomPatient.getText();
             String prenom = prenPatient.getText();
@@ -259,20 +262,31 @@ public class patientController implements Initializable {
         }
     }
 
-    @FXML 
-    public void supprimerPatient(){
-        if(mainController.confirmerAction("Voulez-vous vraiment supprimer ?")){
-            try{
+    @FXML
+    public void supprimerPatient() {
+        if (mainController.confirmerAction("Voulez-vous vraiment supprimer ?")) {
+            try {
                 PatientDao dao = new PatientDao();
-                if(dao.supprimerPatient(patientSelectionne)){
-                    patientsList.remove(patientSelectionne);    
+                if (dao.supprimerPatient(patientSelectionne)) {
+                    patientsList.remove(patientSelectionne);
                     mainController.showAlert("Patient supprimé", Alert.AlertType.INFORMATION).show();
                     annuleNouveauPatient();
                 }
-            } catch (Exception err){
+            } catch (Exception err) {
                 err.printStackTrace();
             }
         }
         // System.out.println(patientSelectionne.getId());
+    }
+
+    @FXML
+    public void onConsulter() throws IOException {
+        try {
+            mainController.getInstance().fenCosultaition();
+            consultationController.getInstance().assignerData(null, patientSelectionne);
+            consultationController.getInstance().showHistorique(patientSelectionne);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

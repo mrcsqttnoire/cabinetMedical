@@ -45,6 +45,9 @@ public class Consultation {
     public RendezVous getRendezVous(){
         return this.rdv;
     }
+    public String getDonneeMed(){
+        return this.tension + "mmHg | " + this.temperature + "°C | " + this.poid + " kg ";
+    }
 
     public void setId(int id){
         this.id = id;

@@ -269,65 +269,65 @@
                            </children>
                         </HBox>
                         <Separator layoutX="17.0" layoutY="63.0" maxWidth="1.7976931348623157E308" opacity="0.95" prefHeight="3.0" prefWidth="341.0" AnchorPane.leftAnchor="17.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="63.0" />
-                        <AnchorPane layoutX="9.0" layoutY="65.0" prefHeight="207.0" prefWidth="333.0">
+                        <AnchorPane layoutX="9.0" layoutY="65.0" maxWidth="1.7976931348623157E308" prefHeight="207.0" prefWidth="333.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                            <children>
-                              <HBox alignment="CENTER_LEFT" layoutX="8.0" layoutY="39.0" prefHeight="48.0" prefWidth="332.0">
+                              <VBox layoutY="3.0" prefHeight="77.0" prefWidth="357.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                  <children>
-                                    <Label maxWidth="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="82.0" styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Prenom :" HBox.hgrow="NEVER">
-                                       <padding>
-                                          <Insets right="10.0" />
-                                       </padding>
+                                    <Label text="NOM &amp; PRENOM :">
+                                       <styleClass>
+                                          <String fx:value="form-label" />
+                                          <String fx:value="info-label" />
+                                       </styleClass>
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
                                     </Label>
-                                    <Label fx:id="labPrenom" maxWidth="-Infinity" prefHeight="44.0" prefWidth="360.0" styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Empty" />
+                                    <Label fx:id="labNom" prefHeight="57.0" prefWidth="327.0" styleClass="info-text" text="Empty" />
+                                 </children>
+                              </VBox>
+                              <HBox alignment="CENTER_LEFT" layoutX="60.0" layoutY="155.0" minWidth="-Infinity" prefHeight="73.0" prefWidth="320.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="145.0">
+                                 <children>
+                                    <AnchorPane maxWidth="1.7976931348623157E308" prefHeight="78.0" prefWidth="348.0" HBox.hgrow="ALWAYS">
+                                       <styleClass>
+                                          <String fx:value="radius" />
+                                          <String fx:value="date-bg" />
+                                       </styleClass>
+                                       <children>
+                                          <FontIcon iconColor="#0f766e" iconLiteral="fas-map-marker-alt" iconSize="24" layoutX="21.0" layoutY="26.0" />
+                                          <FontIcon iconColor="#0f766e" iconLiteral="fas-phone" iconSize="24" layoutX="20.0" layoutY="63.0" />
+                                          <Separator layoutX="180.0" layoutY="21.0" orientation="VERTICAL" prefHeight="35.0" prefWidth="7.0" AnchorPane.rightAnchor="161.0" />
+                                          <Label fx:id="labAdrs" layoutX="56.0" layoutY="7.0" prefHeight="22.0" prefWidth="101.0" styleClass="info-text" text="Empty" />
+                                          <Button fx:id="btnConsulter" alignment="CENTER" layoutX="187.0" layoutY="19.0" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#onConsulter" prefHeight="40.0" prefWidth="130.0" text="Consulter" AnchorPane.bottomAnchor="11.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="11.0">
+                                             <styleClass>
+                                                <String fx:value="btn-primary" />
+                                                <String fx:value="radius" />
+                                             </styleClass>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </Button>
+                                          <Label fx:id="labContact" layoutX="57.0" layoutY="41.0" prefHeight="17.0" prefWidth="87.0" styleClass="info-text" text="Empty" />
+                                       </children>
+                                    </AnchorPane>
                                  </children>
                               </HBox>
-                              <HBox alignment="CENTER_LEFT" layoutX="8.0" layoutY="-1.0" prefHeight="48.0" prefWidth="314.0">
+                              <VBox layoutX="8.0" layoutY="79.0" prefHeight="47.0" prefWidth="357.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                                  <children>
-                                    <Label maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="44.0" styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Nom :">
-                                       <padding>
-                                          <Insets right="10.0" />
-                                       </padding>
+                                    <Label text="DATE DE NAISSANCE :">
+                                       <styleClass>
+                                          <String fx:value="form-label" />
+                                          <String fx:value="info-label" />
+                                       </styleClass>
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
                                     </Label>
-                                    <Label fx:id="labNom" prefHeight="44.0" prefWidth="261.0" styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Empty">
-                                       <padding>
-                                          <Insets right="10.0" />
-                                       </padding>
-                                    </Label>
+                                    <Label fx:id="labDateNaiss" prefHeight="57.0" prefWidth="327.0" styleClass="info-text-2" text="Empty" />
                                  </children>
-                              </HBox>
-                              <HBox alignment="CENTER_LEFT" layoutX="8.0" layoutY="119.0" prefHeight="48.0" prefWidth="314.0">
-                                 <children>
-                                    <Label maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="86.0" styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Contact :">
-                                       <padding>
-                                          <Insets right="10.0" />
-                                       </padding>
-                                    </Label>
-                                    <Label fx:id="labContact" maxWidth="1.7976931348623157E308" prefHeight="44.0" prefWidth="241.0" styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Empty" />
-                                 </children>
-                              </HBox>
-                              <HBox alignment="CENTER_LEFT" layoutX="8.0" layoutY="159.0" prefHeight="48.0" prefWidth="320.0">
-                                 <children>
-                                    <Label maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="84.0" styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Adresse :">
-                                       <padding>
-                                          <Insets right="10.0" />
-                                       </padding>
-                                    </Label>
-                                    <Label fx:id="labAdrs" maxWidth="1.7976931348623157E308" prefHeight="44.0" prefWidth="239.0" styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Empty" />
-                                 </children>
-                              </HBox>
-                              <HBox alignment="CENTER_LEFT" layoutX="8.0" layoutY="79.0" prefHeight="48.0" prefWidth="332.0">
-                                 <children>
-                                    <Label maxWidth="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="170.0" styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Date de naissance :">
-                                       <padding>
-                                          <Insets right="10.0" />
-                                       </padding>
-                                    </Label>
-                                    <Label fx:id="labDateNaiss" maxWidth="1.7976931348623157E308" prefHeight="44.0" prefWidth="155.0" styleClass="form-label" stylesheets="@../../assets/css/patient.css" text="Empty" />
-                                 </children>
-                              </HBox>
+                              </VBox>
                            </children>
                            <padding>
-                              <Insets left="15.0" />
+                              <Insets left="15.0" right="15.0" />
                            </padding>
                         </AnchorPane>
                      </children>

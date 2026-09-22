@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="85.0" prefWidth="348.0" style="-fx-background-color: #F8F9FF;" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.historiqueController">
+   <styleClass>
+      <String fx:value="panel" />
+      <String fx:value="panel-2" />
+      <String fx:value="bo" />
+      <String fx:value="radius" />
+   </styleClass>
+   <stylesheets>
+      <URL value="@../../assets/css/main.css" />
+      <URL value="@../../assets/css/consultation.css" />
+   </stylesheets>
+   <children>
+      <Label fx:id="dateHist" layoutX="14.0" layoutY="14.0" style="-fx-text-fill: #0f766e;" text="01/01/0000" textFill="#0f766e" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <styleClass>
+            <String fx:value="form-label" />
+            <String fx:value="info-text" />
+         </styleClass>
+      </Label>
+      <Label fx:id="diagHist" layoutX="14.0" layoutY="32.0" prefHeight="40.0" styleClass="info-text" text="Visite médicale" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="18.0" />
+      <Label fx:id="donneeHist" layoutX="14.0" layoutY="70.0" prefHeight="30.0" text="Label" textFill="#94a3b8" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="52.0">
+         <styleClass>
+            <String fx:value="custom-text" />
+            <String fx:value="custom-text-2" />
+         </styleClass>
+      </Label>
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+   </padding>
+</AnchorPane>

@@ -10,6 +10,7 @@ import dao.PrescriptionDao;
 import dao.RendezVousDao;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -53,6 +54,9 @@ public class consultationController implements Initializable {
 
     @FXML
     private TextArea diagField;
+
+    @FXML
+    private VBox historiqueContainer;
 
     public static consultationController getInstance() {
         return instance;
@@ -142,16 +146,18 @@ public class consultationController implements Initializable {
         }
     }
 
-    public void updateRdv(RendezVous rdv){
-        try{
+    public void updateRdv(RendezVous rdv) {
+        try {
             String status = "honore";
             rdv.setStatus(status);
-            if(new RendezVousDao().modifierRdv(rdv)){
-            };
-        } catch (Exception e){
+            if (new RendezVousDao().modifierRdv(rdv)) {
+            }
+            ;
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     @FXML
     public void onTerminerConsultation() {
         try {
@@ -185,6 +191,7 @@ public class consultationController implements Initializable {
                 // System.out.println(lastConsultation);
                 enregistrerPrescriptions(lastConsultation);
                 updateRdv(this.rdv);
+                showHistorique(patient);
                 onAnnuler();
                 mainController.showAlert("Consultation terminée avec succès", AlertType.INFORMATION).showAndWait();
             }
@@ -199,8 +206,33 @@ public class consultationController implements Initializable {
         prescriptionContainer.getChildren().clear();
     }
 
+    private ObservableList<Consultation> listData;
+
+    public void showHistorique(Patient p) throws IOException {
+        try {
+            this.listData = new ConsultationDao().getPatinetConsultation(p);
+            historiqueContainer.getChildren().clear();
+            for (Consultation consultation : listData) {
+
+                FXMLLoader loader = new FXMLLoader(App.class.getResource("views/FXML/historiqueConsultation.fxml"));
+                Parent cardHistorique = loader.load();
+
+                historiqueController controller = loader.getController();
+                controller.setData(consultation);
+
+                historiqueContainer.getChildren().add(cardHistorique);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        instance = this;
+        try {
+            instance = this;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
