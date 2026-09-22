@@ -8,13 +8,16 @@ import model.rendez_vous.RendezVous;
 public class Consultation {
     private int id;
     private LocalDate dateConsultation;
-    private String diagnostique;
+    private String diagnostique, tension, temperature, poid;
     private Patient patient;
     private RendezVous rdv;
 
-    public Consultation(LocalDate dtc, String diag, Patient patient){
+    public Consultation(LocalDate dtc, String diag, String ts, String temp, String pd, Patient patient){
         this.dateConsultation = dtc;
         this.diagnostique = diag;
+        this.tension = ts;
+        this.temperature = temp;
+        this.poid = pd;
         this.patient = patient;
     }
 
@@ -26,6 +29,15 @@ public class Consultation {
     }
     public String getDiagnostique(){
         return this.diagnostique;
+    }
+    public String getTension(){
+        return this.tension;
+    }
+    public String getTemperature(){
+        return this.temperature;
+    }
+    public String getPoid(){
+        return this.poid;
     }
     public Patient getPatient(){
         return this.patient;
@@ -42,6 +54,15 @@ public class Consultation {
     }
     public void setDiagnostique(String diag){
         this.diagnostique = diag;
+    }
+    public void setTension(String tension){
+        this.tension = tension;
+    }
+    public void setTemperature(String temp){
+        this.temperature = temp;
+    }
+    public void setPoid(String poid){
+        this.poid = poid;
     }
     public void setPatient(Patient patient){
         this.patient = patient;

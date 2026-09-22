@@ -1,6 +1,5 @@
 package controller;
 
-import java.util.ResourceBundle;
 
 import org.kordamp.ikonli.javafx.FontIcon;
 

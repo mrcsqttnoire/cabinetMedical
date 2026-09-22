@@ -4,16 +4,13 @@ import java.sql.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.time.LocalDate;
 
 import controller.mainController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import model.consultation.Consultation;
-import model.patient_class.Patient;
 import model.prescription.Prescription;
-import model.rendez_vous.RendezVous;
 
 public class PrescriptionDao {
     private Connection conn;
@@ -35,8 +32,9 @@ public class PrescriptionDao {
             stmt.setObject(1, prescription.getMedicament());
             stmt.setString(2, prescription.getDuree());
             stmt.setObject(3, prescription.getInstruction());
+            // System.out.println(prescription.getConsultation().getId());
             if (prescription.getConsultation() != null) {
-                stmt.setObject(4, prescription.getConsultation().getId());
+                stmt.setInt(4, prescription.getConsultation().getId());
             }
 
             System.out.println("prescription ajoutée avec succès");

@@ -11,6 +11,7 @@ public class Prescription {
         this.medicament = medicament;
         this.duree = duree;
         this.instruction = instruction;
+        this.id_consultation = id_consultation;
     }
 
     public int getId(){
