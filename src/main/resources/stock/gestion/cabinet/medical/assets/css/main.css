@@ -292,3 +292,17 @@
 .custom-text-2{
     -fx-text-fill : -label-color;
 }
+
+.countDashboar{
+    -fx-font-family : "Poppins Bold";
+    -fx-font-size : 54px;
+    -fx-text-fill : -text-color;
+    -fx-padding : 0px;
+}
+
+.countconsultation{
+    -fx-font-family : "Poppins Bold";
+    -fx-font-size : 28px;
+    -fx-text-fill : -text-color;
+    -fx-padding : 0px;
+}

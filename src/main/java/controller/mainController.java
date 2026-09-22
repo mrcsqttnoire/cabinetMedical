@@ -76,7 +76,7 @@ public class mainController implements Initializable {
     }
 
     @FXML
-    private void fenDashboard() throws IOException {
+    public  void fenDashboard() throws IOException {
         Parent dashboardView = App.loadFXML("dashboard");
         contentArea.getChildren().setAll(dashboardView);
         activeMenu(dashboardBtn, iconDashboard);

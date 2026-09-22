@@ -1,6 +1,161 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="1023.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" />
+<AnchorPane maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="684.0" prefWidth="1023.0" styleClass="bg-primary" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <padding>
+      <Insets left="32.0" right="32.0" />
+   </padding>
+   <children>
+      <AnchorPane layoutX="32.0" layoutY="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="628.0" prefWidth="961.0" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+         <children>
+            <Label styleClass="main-label" text="Tableau de bord" />
+            <Label layoutY="36.0" styleClass="custom-text" text="Vue générale et activité du cabinet médical ." />
+            <GridPane hgap="20.0" layoutY="75.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="307.0" />
+                <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="307.0" />
+                  <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="307.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="117.0" valignment="CENTER" vgrow="NEVER" />
+              </rowConstraints>
+               <children>
+                  <AnchorPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="117.0" prefWidth="307.0">
+                     <styleClass>
+                        <String fx:value="panel" />
+                        <String fx:value="bo" />
+                        <String fx:value="radius" />
+                     </styleClass>
+                     <children>
+                        <Label layoutX="26.0" layoutY="14.0" styleClass="label-section" text="CONSULTATION DU JOUR" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <Label alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" layoutX="29.0" layoutY="59.0" styleClass="countDashboar" text="0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="25.0" />
+                        <FontIcon iconColor="#0f766e" iconLiteral="fas-calendar" iconSize="32" layoutX="255.0" layoutY="70.0" AnchorPane.rightAnchor="0.0" />
+                     </children>
+                     <padding>
+                        <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+                     </padding>
+                  </AnchorPane>
+                  <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="117.0" prefWidth="307.0" GridPane.columnIndex="2">
+                     <styleClass>
+                        <String fx:value="panel" />
+                        <String fx:value="bo" />
+                        <String fx:value="radius" />
+                     </styleClass>
+                     <children>
+                        <FontIcon iconColor="#0f766e" iconLiteral="fas-money-bill-wave-alt" iconSize="32" layoutX="255.0" layoutY="70.0" AnchorPane.rightAnchor="0.0" />
+                        <Label layoutX="26.0" layoutY="14.0" styleClass="label-section" text="CAPITAL AUJOURD'HUI" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <Label alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" layoutX="29.0" layoutY="59.0" styleClass="countDashboar" text="0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="25.0" />
+                     </children>
+                     <padding>
+                        <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+                     </padding>
+                  </AnchorPane>
+                  <AnchorPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="117.0" prefWidth="307.0" GridPane.columnIndex="1">
+                     <styleClass>
+                        <String fx:value="panel" />
+                        <String fx:value="bo" />
+                        <String fx:value="radius" />
+                     </styleClass>
+                     <children>
+                        <Label layoutX="26.0" layoutY="14.0" styleClass="label-section" text="RENDEZ-VOUS RESTANT" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <Label alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" layoutX="29.0" layoutY="59.0" styleClass="countDashboar" text="0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="25.0" />
+                        <FontIcon iconColor="#0f766e" iconLiteral="fas-clock" iconSize="32" layoutX="255.0" layoutY="70.0" AnchorPane.rightAnchor="0.0" />
+                     </children>
+                     <padding>
+                        <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+                     </padding>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+            <GridPane hgap="20.0" layoutY="213.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="213.0">
+              <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="633.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="306.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" prefHeight="430.0" valignment="CENTER" vgrow="ALWAYS" />
+              </rowConstraints>
+               <children>
+                  <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="430.0" prefWidth="633.0" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                     <styleClass>
+                        <String fx:value="panel" />
+                        <String fx:value="bo" />
+                        <String fx:value="radius" />
+                     </styleClass>
+                     <children>
+                        <Label layoutX="20.0" layoutY="14.0" styleClass="label-section" text="Rendez-vous de la journée" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <Separator layoutX="14.0" layoutY="38.0" prefHeight="9.0" prefWidth="606.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0" />
+                     </children>
+                     <padding>
+                        <Insets left="20.0" right="20.0" top="15.0" />
+                     </padding>
+                  </AnchorPane>
+                  <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="430.0" prefWidth="306.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                     <styleClass>
+                        <String fx:value="panel" />
+                        <String fx:value="bo" />
+                        <String fx:value="radius" />
+                     </styleClass>
+                     <children>
+                        <Label layoutX="67.0" layoutY="33.0" styleClass="label-section" text="Activité &amp; Consultations" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <Separator layoutX="78.0" layoutY="46.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0" />
+                        <BarChart layoutX="48.0" layoutY="250.0" prefHeight="196.0" prefWidth="283.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="180.0">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </BarChart>
+                        <AnchorPane layoutX="53.0" layoutY="57.0" prefHeight="78.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+                           <styleClass>
+                              <String fx:value="panel-2" />
+                              <String fx:value="bo" />
+                              <String fx:value="radius" />
+                           </styleClass>
+                           <children>
+                              <Label layoutX="27.0" layoutY="14.0" text="Total cette semaine" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <styleClass>
+                                    <String fx:value="form-label" />
+                                    <String fx:value="form-label-2" />
+                                 </styleClass>
+                              </Label>
+                              <Label layoutX="28.0" layoutY="39.0" styleClass="countconsultation" text="30" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="30.0" />
+                           </children>
+                           <padding>
+                              <Insets left="20.0" top="10.0" />
+                           </padding>
+                        </AnchorPane>
+                        <Label layoutX="21.0" layoutY="167.0" styleClass="label-section" text="AFFLUENCE QUOTIDIENNE" />
+                     </children>
+                     <padding>
+                        <Insets left="20.0" right="20.0" top="15.0" />
+                     </padding>
+                  </AnchorPane>
+               </children>
+            </GridPane>
+         </children>
+      </AnchorPane>
+   </children>
+   <stylesheets>
+      <URL value="@../../assets/css/main.css" />
+      <URL value="@../../assets/css/consultation.css" />
+   </stylesheets>
+</AnchorPane>

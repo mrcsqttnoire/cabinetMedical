@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import controller.mainController;
+
 /**
  * JavaFX App
  */
@@ -32,7 +34,6 @@ public class App extends Application {
         stage.setMaximized(true); 
         stage.setMinWidth(1280);
         stage.setMinHeight(700);
-
         stage.show();
     }
 
