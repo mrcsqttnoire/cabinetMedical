@@ -96,6 +96,7 @@ public class RendezVousDao {
                 rdv = new RendezVous(result.getObject("date_rdv", LocalDate.class),
                         result.getObject("heure_rdv", LocalTime.class), result.getString("motif"),
                         result.getString("statut"), patient);
+                rdv.setId(result.getInt("id_rdv"));
                 listData.add(rdv);
             }
 

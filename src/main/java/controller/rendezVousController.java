@@ -192,10 +192,10 @@ public class rendezVousController implements Initializable {
         }
     }
 
-    public ObservableList<RendezVous> listData;
+    public ObservableList<RendezVous> rdvList;
 
     public void showRendezVous() {
-        listData = new RendezVousDao().rendezVousGetData();
+        rdvList = new RendezVousDao().rendezVousGetData();
 
         columnHeure.setCellValueFactory(new PropertyValueFactory<>("HeureRdv"));
         columnNomPrenom.setCellValueFactory(cellData -> {
@@ -210,7 +210,7 @@ public class rendezVousController implements Initializable {
             return new SimpleStringProperty(contactPatient);
         });
 
-        tableRdv.setItems(listData);
+        tableRdv.setItems(rdvList);
 
         tableRdv.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
@@ -222,15 +222,16 @@ public class rendezVousController implements Initializable {
         });
     }
 
-    private RendezVous patientSelecitonne;
+    private RendezVous rdvSelecitonne;
 
     public void afficheInfoRdv(RendezVous rdv) {
-        this.patientSelecitonne = rdv;
+        this.rdvSelecitonne = rdv;
 
         InfoNom.setText(rdv.getPatient().getNomPrenom());
         InfoContact.setText(rdv.getPatient().getTelephone());
         InfoDate.setText(rdv.getDateRdv().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
         InfoNom.setText(rdv.getPatient().getNomPrenom());
+        InfoHeure.setText(rdv.getHeureRdv().toString());
     }
 
     @FXML
@@ -240,18 +241,18 @@ public class rendezVousController implements Initializable {
             mainText.setText("Modification des données du rendez-vous.");
             btnValider.setVisible(true);
 
-            dateRdv.setValue(patientSelecitonne.getDateRdv());
-            motif.setText(patientSelecitonne.getMotif());
-            comboPatient.setValue(patientSelecitonne.getPatient());
-            heureRdv.setValue(patientSelecitonne.getHeureRdv().toString());
+            dateRdv.setValue(rdvSelecitonne.getDateRdv());
+            motif.setText(rdvSelecitonne.getMotif());
+            comboPatient.setValue(rdvSelecitonne.getPatient());
+            heureRdv.setValue(rdvSelecitonne.getHeureRdv().toString());
         } catch (Exception e) {
             mainController.showAlert("Impossible de charger les données", AlertType.ERROR);
             e.printStackTrace();
         }
     }
 
-    @FXML 
-    public void onValider(){
+    @FXML
+    public void onValider() {
         try {
             LocalDate date_Rdv;
             String texte_Date = dateRdv.getEditor().getText();
@@ -277,19 +278,37 @@ public class rendezVousController implements Initializable {
                     return;
                 } else {
                     RendezVous rendezVous = new RendezVous(date_Rdv, parseHeureRdv, motif_Rdv, status, patient);
-                    RendezVousDao dao = new RendezVousDao();
-                    if (dao.modifierRdv(rendezVous)) {
+                    rendezVous.setId(rdvSelecitonne.getId());
+                    System.out.println(rdvSelecitonne.getId());
+                    if (new RendezVousDao().modifierRdv(rendezVous)) {
                         onAnnuler();
                         showRendezVous();
-                        mainController.showAlert("Rendez-vous modifié avec succès", AlertType.INFORMATION).showAndWait();
+                        mainController.showAlert("Rendez-vous modifié avec succès", AlertType.INFORMATION)
+                                .showAndWait();
                     }
                 }
             } else {
                 System.out.println(patient);
                 mainController.showAlert("Veuillez remplir tous les champs", AlertType.WARNING).showAndWait();
             }
-        } catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void onSupprimer(){
+        if(mainController.confirmerAction("Voulez-vous supprimer ce rendez-vous ?")){
+            try{
+                if(new RendezVousDao().supprimerRendezVous(rdvSelecitonne)){
+                    rdvList.remove(rdvSelecitonne);
+                    mainController.showAlert("Rendez-vous supprimé ave succès", AlertType.ERROR);
+                    onAnnuler();
+                }
+            } catch(Exception e){
+                e.printStackTrace();
+            }
+
         }
     }
 }

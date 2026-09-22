@@ -257,7 +257,7 @@
                                     <Insets />
                                  </HBox.margin>
                               </FontIcon>
-                              <FontIcon fx:id="btnDeleteRdv" iconColor="#d35151" iconLiteral="fas-trash-alt" iconSize="24">
+                              <FontIcon fx:id="btnDeleteRdv" iconColor="#d35151" iconLiteral="fas-trash-alt" iconSize="24" onMouseClicked="#onSupprimer">
                                  <HBox.margin>
                                     <Insets left="20.0" />
                                  </HBox.margin>
