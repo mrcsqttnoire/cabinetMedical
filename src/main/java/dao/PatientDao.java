@@ -10,10 +10,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 
-public class PatienDao {
+public class PatientDao {
     private Connection conn;
     
-    public PatienDao(){
+    public PatientDao(){
         try{
             conn  = db.DBConnection.getConnection();
         }

@@ -9,6 +9,7 @@ module stock.gestion.cabine.medical {
     opens stock.gestion.cabinet.medical to javafx.fxml;
     opens controller to javafx.fxml;
     opens model.patient_class to javafx.base;
+    opens model.rendez_vous to javafx.base;
 
     exports stock.gestion.cabinet.medical;
 }

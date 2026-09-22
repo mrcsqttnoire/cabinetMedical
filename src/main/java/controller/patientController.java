@@ -8,7 +8,7 @@ import java.util.ResourceBundle;
 
 import org.kordamp.ikonli.javafx.FontIcon;
 
-import dao.PatienDao;
+import dao.PatientDao;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
@@ -132,12 +133,12 @@ public class patientController implements Initializable {
                     return;
                 } else {
                     Patient patient = new Patient(nom, prenom, dateNaiss, contact, adresse);
-                    PatienDao dao = new PatienDao();
+                    PatientDao dao = new PatientDao();
                     if (dao.ajouterPatient(patient)) {
                         msg = "Ajout avec succès";
                         type = AlertType.INFORMATION;
                         mainController.showAlert(msg, type).show();
-                        mainController.viderChamps(dateNaissPatient, nomPatient, prenPatient, adrsPatient, telPatient);
+                        mainController.viderChamps(dateNaissPatient,nomPatient, prenPatient, adrsPatient, telPatient, (TextArea) null);
                         patientShowData();
                     }
                 }
@@ -165,7 +166,7 @@ public class patientController implements Initializable {
     public ObservableList<Patient> patientsList;
 
     public void patientShowData() {
-        PatienDao dao = new PatienDao();
+        PatientDao dao = new PatientDao();
         patientsList = dao.patientGetData();
 
         tablePatient_col_name.setCellValueFactory(new PropertyValueFactory<>("NomPrenom"));
@@ -238,7 +239,7 @@ public class patientController implements Initializable {
                 } else {
                     Patient patient = new Patient(nom, prenom, dateNaiss, contact, adresse);
                     patient.setId(patientSelectionne.getId());
-                    PatienDao dao = new PatienDao();
+                    PatientDao dao = new PatientDao();
                     if (dao.modifierPatient(patient)) {
                         msg = "Modification avec succès";
                         type = AlertType.INFORMATION;
@@ -262,7 +263,7 @@ public class patientController implements Initializable {
     public void supprimerPatient(){
         if(mainController.confirmerAction("Voulez-vous vraiment supprimer ?")){
             try{
-                PatienDao dao = new PatienDao();
+                PatientDao dao = new PatientDao();
                 if(dao.supprimerPatient(patientSelectionne)){
                     patientsList.remove(patientSelectionne);    
                     mainController.showAlert("Patient supprimé", Alert.AlertType.INFORMATION).show();

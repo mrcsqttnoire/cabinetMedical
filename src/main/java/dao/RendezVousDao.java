@@ -92,7 +92,7 @@ public class RendezVousDao {
 
             while (result.next()) {
                 int idPatient = result.getInt("id_patient");
-                Patient patient = new PatienDao().findById(idPatient);
+                Patient patient = new PatientDao().findById(idPatient);
                 rdv = new RendezVous(result.getObject("date_rdv", LocalDate.class),
                         result.getObject("heure_rdv", LocalTime.class), result.getString("motif"),
                         result.getString("statut"), patient);
@@ -118,7 +118,7 @@ public class RendezVousDao {
 
             if (result.next()) {
                 int idPatient = result.getInt("id_patient");
-                Patient patient = new PatienDao().findById(idPatient);
+                Patient patient = new PatientDao().findById(idPatient);
 
                 rdv = new RendezVous(
                         result.getObject("date_rdv", LocalDate.class),

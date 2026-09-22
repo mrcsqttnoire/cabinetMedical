@@ -8,19 +8,24 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.ResourceBundle;
 
+
 import org.kordamp.ikonli.javafx.FontIcon;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
+import javafx.scene.control.Control;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputControl;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import stock.gestion.cabinet.medical.App;
@@ -172,14 +177,35 @@ public class mainController implements Initializable {
         });
     }
 
-    public static void viderChamps(DatePicker dateField, TextField... textFields) {
+    public static void tesAntDate(DatePicker field) {
+        field.setDayCellFactory(param -> new DateCell() {
+            @Override
+            public void updateItem(LocalDate date, boolean empty) {
+                super.updateItem(date, empty);
+
+                if (date != null && date.isBefore(LocalDate.now())) {
+
+                    setDisable(true);
+
+                    setStyle("-fx-background-color: #94A3B8;");
+                }
+            }
+        });
+    }
+
+    public static void viderChamps(DatePicker dateField, Control... fields) {
         if (dateField != null) {
             dateField.setValue(null);
         }
 
-        for (TextField field : textFields) {
-            field.clear();
+        for (Control field : fields) {
+            if (field instanceof TextInputControl){
+                ((TextInputControl) field).clear();
+            } else if(field instanceof ComboBox<?>){
+                ((ComboBox<?>) field).setValue(null);
+            }
         }
+
     }
 
     public void runTime() {

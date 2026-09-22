@@ -101,7 +101,7 @@ public class ConsultationDao {
                 boolean isRdvNull = result.wasNull();
 
                 int idPatient = result.getInt("id_patient");
-                Patient patient = new PatienDao().findById(idPatient);
+                Patient patient = new PatientDao().findById(idPatient);
 
                 c = new Consultation(result.getObject("date_consultation", LocalDate.class), result.getString("diagnostic"), patient);
                 if (!isRdvNull) {
@@ -132,7 +132,7 @@ public class ConsultationDao {
 
             if (result.next()) {
                 int idPatient = result.getInt("id_patient");
-                Patient patient = new PatienDao().findById(idPatient);
+                Patient patient = new PatientDao().findById(idPatient);
                 
                 int idRdv = result.getInt("id_rdv");
                 boolean isRdvNull = result.wasNull();

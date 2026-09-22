@@ -5,10 +5,8 @@ import java.util.ResourceBundle;
 import org.kordamp.ikonli.javafx.FontIcon;
 
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
-import model.consultation.Consultation;
 
 public class prescriptionCardController {
     @FXML
