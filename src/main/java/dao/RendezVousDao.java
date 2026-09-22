@@ -83,7 +83,7 @@ public class RendezVousDao {
     public ObservableList<RendezVous> rendezVousGetData() {
         ObservableList<RendezVous> listData = FXCollections.observableArrayList();
 
-        String sql = "SELECT * FROM rendez_vous";
+        String sql = "SELECT * FROM rendez_vous ORDER BY CASE WHEN statut = 'Planifié' THEN 1 WHEN statut = 'Honoré' THEN 2 END, date_rdv, heure_rdv ASC";
         try {
             Statement query = conn.createStatement();
             result = query.executeQuery(sql);

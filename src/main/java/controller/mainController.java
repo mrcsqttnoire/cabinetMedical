@@ -108,6 +108,7 @@ public class mainController implements Initializable {
     private void fenRendezVous() throws IOException {
         Parent rendezVous = App.loadFXML("rendezVous");
         contentArea.getChildren().setAll(rendezVous);
+        rendezVousController.getInstance().showRendezVous();
     }
 
     private Button latestBtn;

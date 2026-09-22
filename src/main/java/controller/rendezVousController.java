@@ -97,6 +97,15 @@ public class rendezVousController implements Initializable {
 
     @FXML
     private Button btnValider;
+    
+    @FXML
+    private AnchorPane planingRdv;
+
+    private static rendezVousController instance;
+
+    public static rendezVousController getInstance(){
+        return instance;
+    }
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -105,6 +114,7 @@ public class rendezVousController implements Initializable {
             chargerPatient();
             remplirHeure();
             mainController.tesAntDate(dateRdv);
+            instance = this;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -144,7 +154,7 @@ public class rendezVousController implements Initializable {
             String heure_Rdv = heureRdv.getValue();
             LocalTime parseHeureRdv = LocalTime.parse(heure_Rdv);
             String motif_Rdv = motif.getText();
-            String status = "planifié";
+            String status = "planifie";
             Patient patient = comboPatient.getValue();
 
             if (!texte_Date.isEmpty() && texte_Date != null && heure_Rdv != null && !motif_Rdv.isEmpty()
@@ -196,8 +206,21 @@ public class rendezVousController implements Initializable {
 
     public void showRendezVous() {
         rdvList = new RendezVousDao().rendezVousGetData();
-
-        columnHeure.setCellValueFactory(new PropertyValueFactory<>("HeureRdv"));
+        
+        columnHeure.setCellValueFactory(cellData -> {
+            RendezVous rdv = cellData.getValue();
+            if (rdv != null){
+                String stt = rdv.getStatus();
+                if("planifie".equalsIgnoreCase(stt)){
+                    String hrRdv = cellData.getValue().getHeureRdv().toString();
+                    return new SimpleStringProperty(hrRdv);
+                } else {
+                    return new SimpleStringProperty(stt) ;
+                }
+            }
+            return new SimpleStringProperty("");
+        });
+        // columnHeure.setCellValueFactory(new PropertyValueFactory<>("HeureRdv"));
         columnNomPrenom.setCellValueFactory(cellData -> {
             Patient p = cellData.getValue().getPatient();
             String nonmPrenom = p.getNomPrenom();
@@ -229,8 +252,12 @@ public class rendezVousController implements Initializable {
 
         InfoNom.setText(rdv.getPatient().getNomPrenom());
         InfoContact.setText(rdv.getPatient().getTelephone());
+        if("honore".equalsIgnoreCase(rdv.getStatus())){
+            planingRdv.setDisable(true);
+        } else {
+            planingRdv.setDisable(false);
+        }
         InfoDate.setText(rdv.getDateRdv().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-        InfoNom.setText(rdv.getPatient().getNomPrenom());
         InfoHeure.setText(rdv.getHeureRdv().toString());
     }
 

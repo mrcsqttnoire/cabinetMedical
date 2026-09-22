@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 import dao.ConsultationDao;
 import dao.PrescriptionDao;
+import dao.RendezVousDao;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -141,6 +142,16 @@ public class consultationController implements Initializable {
         }
     }
 
+    public void updateRdv(RendezVous rdv){
+        try{
+            String status = "honore";
+            rdv.setStatus(status);
+            if(new RendezVousDao().modifierRdv(rdv)){
+            };
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+    }
     @FXML
     public void onTerminerConsultation() {
         try {
@@ -173,6 +184,7 @@ public class consultationController implements Initializable {
                 Consultation lastConsultation = consultations.get(consultations.size() - 1);
                 // System.out.println(lastConsultation);
                 enregistrerPrescriptions(lastConsultation);
+                updateRdv(this.rdv);
                 onAnnuler();
                 mainController.showAlert("Consultation terminée avec succès", AlertType.INFORMATION).showAndWait();
             }
