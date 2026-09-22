@@ -322,7 +322,7 @@
                                     <FontIcon iconColor="#0f766e" iconLiteral="fas-clock" iconSize="24" layoutX="20.0" layoutY="65.0" />
                                     <Separator layoutX="169.0" layoutY="21.0" orientation="VERTICAL" prefHeight="35.0" prefWidth="7.0" />
                                     <Label fx:id="InfoDate" layoutX="56.0" layoutY="11.0" prefHeight="22.0" prefWidth="101.0" styleClass="info-text" text="Empty" />
-                                    <Button fx:id="btnConsulter" alignment="CENTER" layoutX="187.0" layoutY="19.0" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="130.0" text="Consulter">
+                                    <Button fx:id="btnConsulter" alignment="CENTER" layoutX="187.0" layoutY="19.0" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#onConsulter" prefHeight="40.0" prefWidth="130.0" text="Consulter">
                                        <styleClass>
                                           <String fx:value="btn-primary" />
                                           <String fx:value="radius" />

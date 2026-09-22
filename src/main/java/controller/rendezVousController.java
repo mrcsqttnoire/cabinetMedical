@@ -297,7 +297,7 @@ public class rendezVousController implements Initializable {
     }
 
     @FXML
-    public void onSupprimer(){
+    public void onSupprimer() throws IOException{
         if(mainController.confirmerAction("Voulez-vous supprimer ce rendez-vous ?")){
             try{
                 if(new RendezVousDao().supprimerRendezVous(rdvSelecitonne)){
@@ -309,6 +309,16 @@ public class rendezVousController implements Initializable {
                 e.printStackTrace();
             }
 
+        }
+    }
+
+    @FXML 
+    public void onConsulter() throws IOException{
+        try {
+            mainController.getInstance().fenCosultaition();
+            consultationController.getInstance().assignerData(rdvSelecitonne.getPatient());
+        } catch(Exception e){
+            e.printStackTrace();
         }
     }
 }

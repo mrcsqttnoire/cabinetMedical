@@ -34,6 +34,8 @@ import java.io.IOException;
 
 public class mainController implements Initializable {
 
+    private static mainController instance;
+
     @FXML
     private Button ajouterRendezVous;
 
@@ -70,6 +72,10 @@ public class mainController implements Initializable {
     @FXML
     private FontIcon iconPatient;
 
+    public static mainController getInstance() {
+        return instance;
+    }
+
     @FXML
     private void fenDashboard() throws IOException {
         Parent dashboardView = App.loadFXML("dashboard");
@@ -86,7 +92,7 @@ public class mainController implements Initializable {
     }
 
     @FXML
-    private void fenCosultaition() throws IOException {
+    public void fenCosultaition() throws IOException {
         Parent consultaionView = App.loadFXML("consultation");
         contentArea.getChildren().setAll(consultaionView);
         activeMenu(consultationBtn, iconConsultaiton);
@@ -103,7 +109,6 @@ public class mainController implements Initializable {
     private void fenRendezVous() throws IOException {
         Parent rendezVous = App.loadFXML("rendezVous");
         contentArea.getChildren().setAll(rendezVous);
-        new rendezVousController().showRendezVous();
     }
 
     private Button latestBtn;
@@ -231,6 +236,7 @@ public class mainController implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+        instance = this;
         runTime();
         activeMenu(dashboardBtn, iconDashboard);
     }
