@@ -14,13 +14,23 @@
       <VBox layoutX="50.0" layoutY="30.0" prefHeight="57.0" prefWidth="340.0" spacing="5.0" AnchorPane.bottomAnchor="38.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label styleClass="form-label" text="Entrer le montant  de la consultation :" />
-            <TextField fx:id="mttField" prefHeight="40.0">
-               <styleClass>
-                  <String fx:value="custom-textField" />
-                  <String fx:value="bo" />
-                  <String fx:value="radius" />
-               </styleClass>
-            </TextField>
+            <AnchorPane>
+               <children>
+                  <TextField fx:id="mttField" prefHeight="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <styleClass>
+                        <String fx:value="custom-textField" />
+                        <String fx:value="bo" />
+                        <String fx:value="radius" />
+                     </styleClass>
+                  </TextField>
+                  <Label layoutX="322.0" layoutY="9.0" text="Ar" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="9.0">
+                     <styleClass>
+                        <String fx:value="form-label" />
+                        <String fx:value="form-label-2" />
+                     </styleClass>
+                  </Label>
+               </children>
+            </AnchorPane>
          </children>
       </VBox>
       <Button fx:id="validerMtt" layoutX="324.0" layoutY="98.0" mnemonicParsing="false" onAction="#onValider" styleClass="btn-primary" text="Valider" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />

@@ -57,6 +57,8 @@ public class listRdvDashboardController implements Initializable{
             mainController.getInstance().fenCosultaition();
             consultationController.getInstance().assignerData(rdvSelecitonne, null);
             consultationController.getInstance().showHistorique(rdvSelecitonne.getPatient());
+                
+            consultationController.getInstance().enableForm();
         } catch(Exception e){
             e.printStackTrace();
         }

@@ -33,6 +33,8 @@ import stock.gestion.cabinet.medical.App;
 public class consultationController implements Initializable {
     private static consultationController instance;
     @FXML
+    private Button btnTerminerConsultation;
+    @FXML
     private HBox addLigne;
 
     @FXML
@@ -61,6 +63,9 @@ public class consultationController implements Initializable {
 
     @FXML
     private VBox historiqueContainer;
+
+    @FXML
+    private GridPane formConsultation;
 
     public static consultationController getInstance() {
         return instance;
@@ -182,11 +187,12 @@ public class consultationController implements Initializable {
             }
 
             ouvrirFenetreModale(historiqueContainer);
-            if(modalController.getInstance().isAnnuler){
+            if (modalController.getInstance().isAnnuler) {
                 return;
-            };
+            }
+            ;
 
-            if(!modalController.getInstance().isValide){
+            if (!modalController.getInstance().isValide) {
                 return;
             }
 
@@ -198,23 +204,24 @@ public class consultationController implements Initializable {
                 c = new Consultation(dateConsultation, diag, tension, temperature, poid, patient);
             }
 
-
             if (new ConsultationDao().ajouterConsultation(c)) {
                 ObservableList<Consultation> consultations = new ConsultationDao().consultationGetData();
                 Consultation lastConsultation = consultations.get(consultations.size() - 1);
                 // System.out.println(lastConsultation);
                 updateRdv(this.rdv);
 
-                BigDecimal montant = new BigDecimal(modalController.getInstance().mtt)  ;
+                BigDecimal montant = new BigDecimal(modalController.getInstance().mtt);
                 enregistrerPrescriptions(lastConsultation);
                 facturationController.createDataFacture(montant, lastConsultation);
 
-                if(isRdv){
+                if (isRdv) {
                     showHistorique(rdv.getPatient());
-                } else{
+                } else {
                     showHistorique(patient);
                 }
-                
+
+                // new mainController().fenFacturation();
+                new facturationController().listFacture();
                 onAnnuler();
                 mainController.showAlert("Consultation terminée avec succès", AlertType.INFORMATION).showAndWait();
             }
@@ -225,12 +232,12 @@ public class consultationController implements Initializable {
     }
 
     public void onAnnuler() throws IOException {
-        try{
+        try {
             mainController.viderChamps((DatePicker) null, tensionField, temperatureField, poidFields, diagField);
             // new dashboardController().loadCount();
             prescriptionContainer.getChildren().clear();
             // showHistorique(patient);
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -256,35 +263,43 @@ public class consultationController implements Initializable {
         }
     }
 
-
     public void ouvrirFenetreModale(Node sourceNode) {
-    try {
-        FXMLLoader loader = new FXMLLoader(App.class.getResource("views/FXML/modalMtt.fxml"));
-        Parent root = loader.load();
+        try {
+            FXMLLoader loader = new FXMLLoader(App.class.getResource("views/FXML/modalMtt.fxml"));
+            Parent root = loader.load();
 
-        Stage modalStage = new Stage();
-        modalStage.setTitle("Montant de la consultation");
+            Stage modalStage = new Stage();
+            modalStage.setTitle("Montant de la consultation");
 
-        modalStage.initModality(Modality.APPLICATION_MODAL);
+            modalStage.initModality(Modality.APPLICATION_MODAL);
 
-        Stage parentStage = (Stage) sourceNode.getScene().getWindow();
-        modalStage.initOwner(parentStage);
+            Stage parentStage = (Stage) sourceNode.getScene().getWindow();
+            modalStage.initOwner(parentStage);
 
-        modalStage.setScene(new Scene(root));
-        modalStage.setResizable(false); 
-        
-        modalStage.showAndWait();
+            modalStage.setScene(new Scene(root));
+            modalStage.setResizable(false);
 
-    } catch (Exception e) {
-        e.printStackTrace();
+            modalStage.showAndWait();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-}
 
+    public void enableForm() {
+        if (btnTerminerConsultation != null) {
+            btnTerminerConsultation.setDisable(false);
+        }
+        if (formConsultation != null) {
+            formConsultation.setDisable(false);
+        }
+    }
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         try {
-            mainController.intField(tensionField, temperatureField, poidFields);
+            mainController.intField(temperatureField, poidFields);
+            mainController.tensionField(tensionField);
             instance = this;
         } catch (Exception e) {
             e.printStackTrace();

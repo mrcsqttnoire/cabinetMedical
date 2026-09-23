@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="492.0" stylesheets="@../../assets/css/consultation.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.listeFactureController">
+   <children>
+      <HBox layoutX="23.0" layoutY="10.0" spacing="20.0">
+         <children>
+            <AnchorPane prefHeight="50.0" prefWidth="96.0" style="-fx-background-color: white;">
+               <styleClass>
+                  <String fx:value="panel-2" />
+                  <String fx:value="bo" />
+                  <String fx:value="radius" />
+               </styleClass>
+               <children>
+                  <Label fx:id="numFac" layoutX="14.0" layoutY="16.0" style="-fx-text-fill: #3E4947;" styleClass="form-label" text="FAC-001" />
+               </children>
+            </AnchorPane>
+            <VBox prefHeight="55.0" prefWidth="267.0" spacing="10.0">
+               <children>
+                  <Label fx:id="nomPrenomFac" styleClass="info-text" text="RATOJOARIMANANTSOA Herinantenaina Michaêl" wrapText="true" />
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="25.0">
+                     <children>
+                        <HBox prefHeight="14.0" prefWidth="102.0" spacing="8.0">
+                           <children>
+                              <AnchorPane>
+                                 <children>
+                                    <FontIcon iconColor="#94a3b8" iconLiteral="fas-calendar" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="5.0" />
+                                 </children>
+                              </AnchorPane>
+                              <Label fx:id="dateFac" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="22.0" prefWidth="89.0" style="-fx-text-fill: #94a3b8;" styleClass="custom-text" text="03/03/2026" textFill="#94a3b8" HBox.hgrow="ALWAYS" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="112.0" layoutY="10.0" prefHeight="14.0" prefWidth="102.0" spacing="8.0">
+                           <children>
+                              <AnchorPane>
+                                 <children>
+                                    <FontIcon iconColor="#94a3b8" iconLiteral="fas-stethoscope" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="5.0" />
+                                 </children>
+                              </AnchorPane>
+                              <Label fx:id="consultationId" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="80.0" style="-fx-text-fill: #94a3b8;" styleClass="custom-text" text="C-001" textFill="#94a3b8" HBox.hgrow="ALWAYS" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <AnchorPane fx:id="btnDetailFac" layoutX="559.0" layoutY="16.0" prefHeight="55.0" prefWidth="58.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="9.0">
+         <children>
+            <FontIcon iconColor="#0f766e" iconLiteral="fas-angle-right" iconSize="32" layoutX="20.0" layoutY="40.0" />
+         </children>
+         <styleClass>
+            <String fx:value="date-bg" />
+            <String fx:value="radius" />
+            <String fx:value="bo" />
+         </styleClass>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </AnchorPane>
+   </children>
+   <styleClass>
+      <String fx:value="panel-2" />
+      <String fx:value="bo" />
+      <String fx:value="radius" />
+   </styleClass>
+</AnchorPane>

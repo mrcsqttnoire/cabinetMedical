@@ -1,4 +1,4 @@
-package model.facturatoin;
+package model.facturation;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -47,7 +47,7 @@ public class Facturation {
     public void setStatus(String stt){
         this.status = stt;
     }
-    public void  getConsultation(Consultation c){
+    public void  setConsultation(Consultation c){
         this.consultation = c;
     }
 

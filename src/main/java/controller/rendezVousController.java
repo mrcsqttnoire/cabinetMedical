@@ -344,6 +344,7 @@ public class rendezVousController implements Initializable {
     public void onConsulter() throws IOException{
         try {
             mainController.getInstance().fenCosultaition();
+            new consultationController().enableForm();
             consultationController.getInstance().assignerData(rdvSelecitonne, null);
             consultationController.getInstance().showHistorique(rdvSelecitonne.getPatient());
         } catch(Exception e){

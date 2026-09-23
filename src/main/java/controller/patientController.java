@@ -285,6 +285,7 @@ public class patientController implements Initializable {
             mainController.getInstance().fenCosultaition();
             consultationController.getInstance().assignerData(null, patientSelectionne);
             consultationController.getInstance().showHistorique(patientSelectionne);
+            consultationController.getInstance().enableForm();
         } catch (Exception e) {
             e.printStackTrace();
         }

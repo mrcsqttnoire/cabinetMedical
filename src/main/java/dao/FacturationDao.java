@@ -8,7 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
 import model.consultation.Consultation;
-import model.facturatoin.Facturation;
+import model.facturation.Facturation;
 
 public class FacturationDao {
     private Connection conn;
@@ -93,7 +93,7 @@ public class FacturationDao {
                 Consultation c = new ConsultationDao().findById(id_consultation);
 
                 fac = new Facturation(result.getBigDecimal("montant"), result.getObject("date_facture", LocalDate.class), result.getString("statut_paiement"), c );
-
+                fac.setId(result.getInt("id_facture"));
                 listData.add(fac);
             }
 
@@ -119,6 +119,7 @@ public class FacturationDao {
                 Consultation c = new ConsultationDao().findById(id_consultation);
 
                 fac = new Facturation(result.getBigDecimal("montant"), result.getObject("date_facture", LocalDate.class), result.getString("statut_paiement"), c );
+                fac.setId(result.getInt("id_facture"));
             }
 
         } catch (Exception e) {

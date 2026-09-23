@@ -98,7 +98,7 @@ public class mainController implements Initializable {
     }
 
     @FXML
-    private void fenFacturation() throws IOException {
+    public void fenFacturation() throws IOException {
         Parent facView = App.loadFXML("facturation");
         contentArea.getChildren().setAll(facView);
         activeMenu(facturationBtn, iconFac);
@@ -178,6 +178,16 @@ public class mainController implements Initializable {
         }
     }
 
+    public static void tensionField(TextField... fields) {
+        for (TextField field : fields) {
+            field.textProperty().addListener((observable, oldValue, newValue) -> {
+                if (newValue != null && !newValue.matches("[\\d./-]*")) {
+                    field.setText(oldValue);
+                }
+            });
+        }
+    }
+
     public static void testDate(DatePicker field) {
         field.setDayCellFactory(param -> new DateCell() {
             @Override
@@ -185,8 +195,8 @@ public class mainController implements Initializable {
                 super.updateItem(date, empty);
 
                 if (date != null && date.isAfter(LocalDate.now())) {
-                        setDisable(true);
-                        setStyle("-fx-background-color: #94A3B8;");
+                    setDisable(true);
+                    setStyle("-fx-background-color: #94A3B8;");
                 }
             }
         });
