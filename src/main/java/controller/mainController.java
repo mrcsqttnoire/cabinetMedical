@@ -4,10 +4,10 @@ import javafx.fxml.Initializable;
 
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.ResourceBundle;
-
 
 import org.kordamp.ikonli.javafx.FontIcon;
 
@@ -76,7 +76,7 @@ public class mainController implements Initializable {
     }
 
     @FXML
-    public  void fenDashboard() throws IOException {
+    public void fenDashboard() throws IOException {
         Parent dashboardView = App.loadFXML("dashboard");
         contentArea.getChildren().setAll(dashboardView);
         activeMenu(dashboardBtn, iconDashboard);
@@ -104,7 +104,7 @@ public class mainController implements Initializable {
         activeMenu(facturationBtn, iconFac);
     }
 
-    @FXML 
+    @FXML
     private void fenRendezVous() throws IOException {
         Parent rendezVous = App.loadFXML("rendezVous");
         contentArea.getChildren().setAll(rendezVous);
@@ -113,12 +113,13 @@ public class mainController implements Initializable {
 
     private Button latestBtn;
     private FontIcon latestIcon;
-    public void activeMenu(Button btn, FontIcon icon){
+
+    public void activeMenu(Button btn, FontIcon icon) {
         btn.setTextFill(Color.web("#0F766E"));
-        icon.setIconColor(Color.web("#0F766E")); 
-        if (this.latestBtn != null && this.latestIcon != null && this.latestBtn != btn){
+        icon.setIconColor(Color.web("#0F766E"));
+        if (this.latestBtn != null && this.latestIcon != null && this.latestBtn != btn) {
             this.latestBtn.setTextFill(Color.web("#3e4947"));
-            this.latestIcon.setIconColor(Color.web("#3e4947")); 
+            this.latestIcon.setIconColor(Color.web("#3e4947"));
         }
         this.latestBtn = btn;
         this.latestIcon = icon;
@@ -132,7 +133,7 @@ public class mainController implements Initializable {
         return alert;
     }
 
-    public static  boolean confirmerAction(String message) {
+    public static boolean confirmerAction(String message) {
         Alert confirmation = new Alert(Alert.AlertType.CONFIRMATION);
         confirmation.setTitle("Confirmation");
         confirmation.setHeaderText(null);
@@ -167,6 +168,16 @@ public class mainController implements Initializable {
         }
     }
 
+    public static void intField(TextField... fields) {
+        for (TextField field : fields) {
+            field.textProperty().addListener((observable, oldValue, newValue) -> {
+                if (newValue != null && !newValue.matches("-?\\d*(\\.\\d*)?")) {
+                    field.setText(oldValue);
+                }
+            });
+        }
+    }
+
     public static void testDate(DatePicker field) {
         field.setDayCellFactory(param -> new DateCell() {
             @Override
@@ -174,10 +185,8 @@ public class mainController implements Initializable {
                 super.updateItem(date, empty);
 
                 if (date != null && date.isAfter(LocalDate.now())) {
-
-                    setDisable(true);
-
-                    setStyle("-fx-background-color: #94A3B8;");
+                        setDisable(true);
+                        setStyle("-fx-background-color: #94A3B8;");
                 }
             }
         });
@@ -205,9 +214,9 @@ public class mainController implements Initializable {
         }
 
         for (Control field : fields) {
-            if (field instanceof TextInputControl){
+            if (field instanceof TextInputControl) {
                 ((TextInputControl) field).clear();
-            } else if(field instanceof ComboBox<?>){
+            } else if (field instanceof ComboBox<?>) {
                 ((ComboBox<?>) field).setValue(null);
             }
         }

@@ -3,7 +3,6 @@ package dao;
 import java.sql.*;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 import controller.mainController;
 import javafx.collections.FXCollections;
@@ -277,8 +276,8 @@ public class ConsultationDao {
         ResultSet rs = stmt.executeQuery();
 
         while (rs.next()) {
-            int jourSql = rs.getInt("jour");   // 2=lundi ... 6=vendredi
-            int index = jourSql - 2;            // conversion vers index 0-4
+            int jourSql = rs.getInt("jour"); 
+            int index = jourSql - 2;
             if (index >= 0 && index < 5) {
                 compteurs[index] = rs.getInt("nb");
             }

@@ -17,325 +17,330 @@
 <?import javafx.scene.layout.VBox?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="712.0" prefWidth="1023.0" styleClass="bg-primary" stylesheets="@../../assets/css/consultation.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.consultationController">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1023.0" styleClass="bg-primary" stylesheets="@../../assets/css/consultation.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.consultationController">
    <padding>
-      <Insets bottom="20.0" left="32.0" right="32.0" top="20.0" />
+      <Insets left="32.0" right="32.0" />
    </padding>
    <children>
-      <AnchorPane layoutX="33.0" layoutY="40.0" prefHeight="79.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <styleClass>
-            <String fx:value="panel" />
-            <String fx:value="bo" />
-            <String fx:value="radius" />
-         </styleClass>
+      <AnchorPane layoutX="32.0" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
          <children>
-            <GridPane layoutX="320.0" layoutY="25.0" prefHeight="79.0" prefWidth="959.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
-                <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="847.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                     <children>
-                        <AnchorPane layoutX="22.0" layoutY="11.0" prefHeight="55.0" prefWidth="57.0">
-                           <children>
-                              <FontIcon fill="#138542" iconLiteral="fas-user-injured" iconSize="24" layoutX="18.0" layoutY="36.0" styleClass="radius" />
-                           </children>
-                           <styleClass>
-                              <String fx:value="date-bg" />
-                              <String fx:value="radius" />
-                           </styleClass>
-                        </AnchorPane>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane prefHeight="63.0" prefWidth="837.0" GridPane.columnIndex="1">
-                     <children>
-                        <Label fx:id="nomPatient" layoutY="14.0" styleClass="info-text" text="Veuillez choisir un patient dans patient ou rendez vous" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                        <AnchorPane layoutY="45.0" prefWidth="106.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
-                           <children>
-                              <FontIcon iconColor="#94a3b8" iconLiteral="fas-phone" iconSize="15" layoutX="4.0" layoutY="17.0" />
-                              <Label fx:id="numPatient" layoutX="25.0" prefHeight="22.0" prefWidth="101.0" styleClass="custom-text" text="Empty" textFill="#94a3b8" />
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane layoutX="132.0" layoutY="40.0" prefWidth="106.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="132.0">
-                           <children>
-                              <FontIcon iconColor="#94a3b8" iconLiteral="fas-map-marker-alt" iconSize="15" layoutX="4.0" layoutY="17.0" />
-                              <Label fx:id="adrsPatient" layoutX="25.0" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="22.0" prefWidth="140.0" styleClass="custom-text" text="Empty" textFill="#94a3b8" />
-                           </children>
-                        </AnchorPane>
-                        <Separator layoutX="125.0" layoutY="26.0" orientation="VERTICAL" prefHeight="21.0" prefWidth="6.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="125.0" />
-                        <Button fx:id="btnTerminerConsultation" layoutX="661.0" layoutY="30.0" mnemonicParsing="false" onAction="#onTerminerConsultation" prefHeight="70.0" prefWidth="238.0" text="Terminer la consultation" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="0.0">
-                           <styleClass>
-                              <String fx:value="btn-primary" />
-                              <String fx:value="radius" />
-                           </styleClass></Button>
-                        <FontIcon iconColor="#da1e1e" iconLiteral="far-times-circle" iconSize="24" layoutX="555.0" layoutY="48.0" onMouseClicked="#onAnnuler" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="272.0" AnchorPane.topAnchor="10.0" />
-                     </children>
-                     <padding>
-                        <Insets bottom="15.0" top="15.0" />
-                     </padding>
-                  </AnchorPane>
-               </children>
-            </GridPane>
-         </children>
-         <padding>
-            <Insets right="20.0" />
-         </padding>
-      </AnchorPane>
-      <GridPane hgap="20.0" layoutX="64.0" layoutY="119.0" prefHeight="541.0" prefWidth="927.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="605.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <GridPane vgap="20.0">
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin>
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints maxHeight="-Infinity" prefHeight="151.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="250.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="151.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <AnchorPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="151.0" styleClass="panel">
-                     <children>
-                        <Label styleClass="label-section" text="DONNEES PHYSIOLOGIQUES :" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                        <GridPane hgap="15.0" layoutX="40.0" layoutY="28.0" prefHeight="116.0" prefWidth="439.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
-                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                           <children>
-                              <AnchorPane prefHeight="66.0" prefWidth="108.0">
-                                 <styleClass>
-                                    <String fx:value="panel" />
-                                    <String fx:value="panel-2" />
-                                    <String fx:value="bo" />
-                                    <String fx:value="radius" />
-                                 </styleClass>
-                                 <children>
-                                    <Label layoutX="33.0" layoutY="6.0" text="Tension :" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="6.0">
-                                       <styleClass>
-                                          <String fx:value="form-label" />
-                                          <String fx:value="form-label-2" />
-                                       </styleClass>
-                                    </Label>
-                                    <TextField fx:id="tensionField" layoutX="22.0" layoutY="31.0" prefHeight="41.0" prefWidth="71.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                                       <styleClass>
-                                          <String fx:value="radius" />
-                                          <String fx:value="custom-textField" />
-                                          <String fx:value="bo" />
-                                       </styleClass>
-                                       <padding>
-                                          <Insets left="10.0" right="70.0" />
-                                       </padding>
-                                    </TextField>
-                                    <Label layoutX="100.0" layoutY="40.0" text="mmHg" AnchorPane.rightAnchor="5.0">
-                                       <styleClass>
-                                          <String fx:value="form-label" />
-                                          <String fx:value="form-label-2" />
-                                       </styleClass>
-                                    </Label>
-                                 </children>
-                                 <padding>
-                                    <Insets left="10.0" right="10.0" />
-                                 </padding>
-                                 <GridPane.margin>
-                                    <Insets />
-                                 </GridPane.margin>
-                              </AnchorPane>
-                              <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="66.0" prefWidth="108.0" GridPane.columnIndex="1">
-                                 <styleClass>
-                                    <String fx:value="panel" />
-                                    <String fx:value="panel-2" />
-                                    <String fx:value="bo" />
-                                    <String fx:value="radius" />
-                                 </styleClass>
-                                 <children>
-                                    <Label layoutX="33.0" layoutY="6.0" text="Température :" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="6.0">
-                                       <styleClass>
-                                          <String fx:value="form-label" />
-                                          <String fx:value="form-label-2" />
-                                       </styleClass>
-                                    </Label>
-                                    <TextField fx:id="temperatureField" layoutX="22.0" layoutY="31.0" prefHeight="41.0" prefWidth="71.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                                       <styleClass>
-                                          <String fx:value="radius" />
-                                          <String fx:value="custom-textField" />
-                                          <String fx:value="bo" />
-                                       </styleClass>
-                                       <padding>
-                                          <Insets left="10.0" right="38.0" />
-                                       </padding>
-                                    </TextField>
-                                    <Label layoutX="100.0" layoutY="40.0" text="° C" AnchorPane.rightAnchor="5.0">
-                                       <styleClass>
-                                          <String fx:value="form-label" />
-                                          <String fx:value="form-label-2" />
-                                       </styleClass>
-                                    </Label>
-                                 </children>
-                                 <padding>
-                                    <Insets left="10.0" right="10.0" />
-                                 </padding>
-                              </AnchorPane>
-                              <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="66.0" prefWidth="108.0" GridPane.columnIndex="2">
-                                 <styleClass>
-                                    <String fx:value="panel" />
-                                    <String fx:value="panel-2" />
-                                    <String fx:value="bo" />
-                                    <String fx:value="radius" />
-                                 </styleClass>
-                                 <children>
-                                    <Label layoutX="33.0" layoutY="6.0" text="Poids :" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="6.0">
-                                       <styleClass>
-                                          <String fx:value="form-label" />
-                                          <String fx:value="form-label-2" />
-                                       </styleClass>
-                                    </Label>
-                                    <TextField fx:id="poidFields" layoutX="22.0" layoutY="31.0" prefHeight="41.0" prefWidth="71.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                                       <styleClass>
-                                          <String fx:value="radius" />
-                                          <String fx:value="custom-textField" />
-                                          <String fx:value="bo" />
-                                       </styleClass>
-                                       <padding>
-                                          <Insets left="10.0" right="38.0" />
-                                       </padding>
-                                    </TextField>
-                                    <Label layoutX="100.0" layoutY="40.0" text="Kg" AnchorPane.rightAnchor="5.0">
-                                       <styleClass>
-                                          <String fx:value="form-label" />
-                                          <String fx:value="form-label-2" />
-                                       </styleClass>
-                                    </Label>
-                                 </children>
-                                 <padding>
-                                    <Insets left="10.0" right="10.0" />
-                                 </padding>
-                              </AnchorPane>
-                           </children>
-                        </GridPane>
-                     </children>
-                     <padding>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="15.0" />
-                     </padding>
-                  </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
-                     <styleClass>
-                        <String fx:value="panel" />
-                        <String fx:value="bo" />
-                        <String fx:value="radius" />
-                     </styleClass>
-                     <padding>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="15.0" />
-                     </padding>
-                     <children>
-                        <Label layoutX="58.0" layoutY="32.0" styleClass="label-section" text="DIAGNOSTIQUES MEDICALE :" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                        <TextArea fx:id="diagField" layoutX="42.0" layoutY="-4.0" prefHeight="124.0" prefWidth="497.0" promptText="Détails de la maladie du patient...." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
-                           <styleClass>
-                              <String fx:value="custom-textField" />
-                              <String fx:value="bo" />
-                              <String fx:value="radius" />
-                           </styleClass>
-                        </TextArea>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane layoutX="10.0" layoutY="181.0" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
-                     <styleClass>
-                        <String fx:value="panel" />
-                        <String fx:value="bo" />
-                        <String fx:value="radius" />
-                     </styleClass>
-                     <children>
-                        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutX="42.0" layoutY="28.0" prefHeight="111.0" prefWidth="514.0" style="-fx-background-color: transparent; -fx-border-width: 0;" stylesheets="@../../assets/css/main.css" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="72.0">
-                           <content>
-                              <VBox fx:id="prescriptionContainer" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="80.0" prefWidth="502.0" spacing="8.0" styleClass="custom-scroll-pane" stylesheets="@../../assets/css/main.css" />
-                           </content>
-                           <padding>
-                              <Insets top="8.0" />
-                           </padding>
-                        </ScrollPane>
-                        <Label layoutX="-46.0" layoutY="22.0" styleClass="label-section" text="PRESCRIPTION MEDICAMENTEUSE :" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                        <HBox fx:id="addLigne" layoutX="444.0" layoutY="16.0" spacing="10.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <FontIcon iconColor="#0f766e" iconLiteral="fas-plus" iconSize="18" onMouseClicked="#ajouterLignePrescription">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </FontIcon>
-                              <Label alignment="CENTER_RIGHT" onMouseClicked="#ajouterLignePrescription" styleClass="head_btn" text="Ajouter">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <AnchorPane maxWidth="1.7976931348623157E308" prefHeight="47.0" prefWidth="482.0" styleClass="head_section" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
-                           <children>
-                              <GridPane layoutY="11.0" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="11.0">
-                                 <columnConstraints>
-                                    <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="171.0" />
-                                    <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="132.0" />
-                                    <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="179.0" />
-                                 </columnConstraints>
-                                 <rowConstraints>
-                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-                                 </rowConstraints>
-                                 <children>
-                                    <Label alignment="CENTER" prefHeight="25.0" prefWidth="172.0" styleClass="head_text" text="Médicaments" />
-                                    <Label alignment="CENTER" prefHeight="25.0" prefWidth="132.0" styleClass="head_text" text="Durée" GridPane.columnIndex="1" />
-                                    <Label alignment="CENTER" prefHeight="25.0" prefWidth="179.0" styleClass="head_text" text="Instructions" GridPane.columnIndex="2" />
-                                 </children>
-                              </GridPane>
-                           </children>
-                        </AnchorPane>
-                     </children>
-                     <padding>
-                        <Insets bottom="20.0" left="20.0" top="15.0" />
-                     </padding>
-                     <GridPane.margin>
-                        <Insets />
-                     </GridPane.margin>
-                  </AnchorPane>
-               </children>
-            </GridPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+            <AnchorPane prefHeight="79.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <styleClass>
                   <String fx:value="panel" />
                   <String fx:value="bo" />
                   <String fx:value="radius" />
                </styleClass>
                <children>
-                  <Label layoutX="25.0" layoutY="14.0" styleClass="label-section" text="Historiques Antérieures :" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                  <ScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutY="137.0" prefHeight="111.0" prefWidth="326.0" style="-fx-background-color: transparent; -fx-border-width: 0;" stylesheets="@../../assets/css/main.css" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0">
-                     <content>
-                        <VBox fx:id="historiqueContainer" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="80.0" prefWidth="502.0" spacing="15.0" styleClass="custom-scroll-pane" stylesheets="@../../assets/css/main.css" />
-                     </content>
-                     <padding>
-                        <Insets right="10.0" top="8.0" />
-                     </padding>
-                  </ScrollPane>
+                  <GridPane layoutX="320.0" layoutY="25.0" prefHeight="79.0" prefWidth="959.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="847.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <AnchorPane layoutX="22.0" layoutY="11.0" prefHeight="55.0" prefWidth="57.0">
+                                 <children>
+                                    <FontIcon fill="#138542" iconLiteral="fas-user-injured" iconSize="24" layoutX="18.0" layoutY="36.0" styleClass="radius" />
+                                 </children>
+                                 <styleClass>
+                                    <String fx:value="date-bg" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="63.0" prefWidth="837.0" GridPane.columnIndex="1">
+                           <children>
+                              <Label fx:id="nomPatient" layoutY="14.0" styleClass="info-text" text="Veuillez choisir un patient dans patient ou rendez vous" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <AnchorPane layoutY="45.0" prefWidth="106.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+                                 <children>
+                                    <FontIcon iconColor="#94a3b8" iconLiteral="fas-phone" iconSize="15" layoutX="4.0" layoutY="17.0" />
+                                    <Label fx:id="numPatient" layoutX="25.0" prefHeight="22.0" prefWidth="101.0" styleClass="custom-text" text="Empty" textFill="#94a3b8" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="132.0" layoutY="40.0" prefWidth="106.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="132.0">
+                                 <children>
+                                    <FontIcon iconColor="#94a3b8" iconLiteral="fas-map-marker-alt" iconSize="15" layoutX="4.0" layoutY="17.0" />
+                                    <Label fx:id="adrsPatient" layoutX="25.0" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="22.0" prefWidth="140.0" styleClass="custom-text" text="Empty" textFill="#94a3b8" />
+                                 </children>
+                              </AnchorPane>
+                              <Separator layoutX="125.0" layoutY="26.0" orientation="VERTICAL" prefHeight="21.0" prefWidth="6.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="125.0" />
+                              <Button fx:id="btnTerminerConsultation" layoutX="661.0" layoutY="30.0" mnemonicParsing="false" onAction="#onTerminerConsultation" prefHeight="70.0" prefWidth="238.0" text="Terminer la consultation" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="0.0">
+                                 <styleClass>
+                                    <String fx:value="btn-primary" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                              </Button>
+                              <FontIcon iconColor="#da1e1e" iconLiteral="far-times-circle" iconSize="24" layoutX="555.0" layoutY="48.0" onMouseClicked="#onAnnuler" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="272.0" AnchorPane.topAnchor="10.0" />
+                           </children>
+                           <padding>
+                              <Insets bottom="15.0" top="15.0" />
+                           </padding>
+                        </AnchorPane>
+                     </children>
+                  </GridPane>
                </children>
                <padding>
-                  <Insets bottom="20.0" left="20.0" top="15.0" />
+                  <Insets right="20.0" />
                </padding>
             </AnchorPane>
+            <GridPane hgap="20.0" layoutY="100.0" prefHeight="541.0" prefWidth="927.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="605.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" prefHeight="541.0" valignment="CENTER" vgrow="ALWAYS" />
+              </rowConstraints>
+               <children>
+                  <GridPane vgap="20.0">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="151.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="250.0" minHeight="-Infinity" prefHeight="100.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="151.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <AnchorPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="151.0" styleClass="panel">
+                           <children>
+                              <Label styleClass="label-section" text="DONNEES PHYSIOLOGIQUES :" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <GridPane hgap="15.0" layoutX="40.0" layoutY="28.0" prefHeight="116.0" prefWidth="439.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <AnchorPane prefHeight="66.0" prefWidth="108.0">
+                                       <styleClass>
+                                          <String fx:value="panel" />
+                                          <String fx:value="panel-2" />
+                                          <String fx:value="bo" />
+                                          <String fx:value="radius" />
+                                       </styleClass>
+                                       <children>
+                                          <Label layoutX="33.0" layoutY="6.0" text="Tension :" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="6.0">
+                                             <styleClass>
+                                                <String fx:value="form-label" />
+                                                <String fx:value="form-label-2" />
+                                             </styleClass>
+                                          </Label>
+                                          <TextField fx:id="tensionField" layoutX="22.0" layoutY="31.0" prefHeight="41.0" prefWidth="71.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                             <styleClass>
+                                                <String fx:value="radius" />
+                                                <String fx:value="custom-textField" />
+                                                <String fx:value="bo" />
+                                             </styleClass>
+                                             <padding>
+                                                <Insets left="10.0" right="70.0" />
+                                             </padding>
+                                          </TextField>
+                                          <Label layoutX="100.0" layoutY="40.0" text="mmHg" AnchorPane.rightAnchor="5.0">
+                                             <styleClass>
+                                                <String fx:value="form-label" />
+                                                <String fx:value="form-label-2" />
+                                             </styleClass>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" right="10.0" />
+                                       </padding>
+                                       <GridPane.margin>
+                                          <Insets />
+                                       </GridPane.margin>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="66.0" prefWidth="108.0" GridPane.columnIndex="1">
+                                       <styleClass>
+                                          <String fx:value="panel" />
+                                          <String fx:value="panel-2" />
+                                          <String fx:value="bo" />
+                                          <String fx:value="radius" />
+                                       </styleClass>
+                                       <children>
+                                          <Label layoutX="33.0" layoutY="6.0" text="Température :" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="6.0">
+                                             <styleClass>
+                                                <String fx:value="form-label" />
+                                                <String fx:value="form-label-2" />
+                                             </styleClass>
+                                          </Label>
+                                          <TextField fx:id="temperatureField" layoutX="22.0" layoutY="31.0" prefHeight="41.0" prefWidth="71.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                             <styleClass>
+                                                <String fx:value="radius" />
+                                                <String fx:value="custom-textField" />
+                                                <String fx:value="bo" />
+                                             </styleClass>
+                                             <padding>
+                                                <Insets left="10.0" right="38.0" />
+                                             </padding>
+                                          </TextField>
+                                          <Label layoutX="100.0" layoutY="40.0" text="° C" AnchorPane.rightAnchor="5.0">
+                                             <styleClass>
+                                                <String fx:value="form-label" />
+                                                <String fx:value="form-label-2" />
+                                             </styleClass>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" right="10.0" />
+                                       </padding>
+                                    </AnchorPane>
+                                    <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="66.0" prefWidth="108.0" GridPane.columnIndex="2">
+                                       <styleClass>
+                                          <String fx:value="panel" />
+                                          <String fx:value="panel-2" />
+                                          <String fx:value="bo" />
+                                          <String fx:value="radius" />
+                                       </styleClass>
+                                       <children>
+                                          <Label layoutX="33.0" layoutY="6.0" text="Poids :" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="6.0">
+                                             <styleClass>
+                                                <String fx:value="form-label" />
+                                                <String fx:value="form-label-2" />
+                                             </styleClass>
+                                          </Label>
+                                          <TextField fx:id="poidFields" layoutX="22.0" layoutY="31.0" prefHeight="41.0" prefWidth="71.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                                             <styleClass>
+                                                <String fx:value="radius" />
+                                                <String fx:value="custom-textField" />
+                                                <String fx:value="bo" />
+                                             </styleClass>
+                                             <padding>
+                                                <Insets left="10.0" right="38.0" />
+                                             </padding>
+                                          </TextField>
+                                          <Label layoutX="100.0" layoutY="40.0" text="Kg" AnchorPane.rightAnchor="5.0">
+                                             <styleClass>
+                                                <String fx:value="form-label" />
+                                                <String fx:value="form-label-2" />
+                                             </styleClass>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets left="10.0" right="10.0" />
+                                       </padding>
+                                    </AnchorPane>
+                                 </children>
+                              </GridPane>
+                           </children>
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="15.0" />
+                           </padding>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="150.0" prefWidth="507.0" GridPane.rowIndex="1">
+                           <styleClass>
+                              <String fx:value="panel" />
+                              <String fx:value="bo" />
+                              <String fx:value="radius" />
+                           </styleClass>
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="15.0" />
+                           </padding>
+                           <children>
+                              <Label layoutX="58.0" layoutY="32.0" styleClass="label-section" text="DIAGNOSTIQUES MEDICALE :" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <TextArea fx:id="diagField" layoutX="42.0" layoutY="-4.0" prefHeight="124.0" prefWidth="497.0" promptText="Détails de la maladie du patient...." AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+                                 <styleClass>
+                                    <String fx:value="custom-textField" />
+                                    <String fx:value="bo" />
+                                    <String fx:value="radius" />
+                                 </styleClass>
+                              </TextArea>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="10.0" layoutY="181.0" prefHeight="200.0" prefWidth="505.0" GridPane.rowIndex="2">
+                           <styleClass>
+                              <String fx:value="panel" />
+                              <String fx:value="bo" />
+                              <String fx:value="radius" />
+                           </styleClass>
+                           <children>
+                              <ScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutX="42.0" layoutY="28.0" prefHeight="111.0" prefWidth="514.0" style="-fx-background-color: transparent; -fx-border-width: 0;" stylesheets="@../../assets/css/main.css" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="72.0">
+                                 <content>
+                                    <VBox fx:id="prescriptionContainer" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="80.0" prefWidth="502.0" spacing="8.0" styleClass="custom-scroll-pane" stylesheets="@../../assets/css/main.css" />
+                                 </content>
+                                 <padding>
+                                    <Insets top="8.0" />
+                                 </padding>
+                              </ScrollPane>
+                              <Label layoutX="-46.0" layoutY="22.0" styleClass="label-section" text="PRESCRIPTION MEDICAMENTEUSE :" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                              <HBox fx:id="addLigne" layoutX="444.0" layoutY="16.0" spacing="10.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <FontIcon iconColor="#0f766e" iconLiteral="fas-plus" iconSize="18" onMouseClicked="#ajouterLignePrescription">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </FontIcon>
+                                    <Label alignment="CENTER_RIGHT" onMouseClicked="#ajouterLignePrescription" styleClass="head_btn" text="Ajouter">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <AnchorPane maxWidth="1.7976931348623157E308" prefHeight="47.0" prefWidth="482.0" styleClass="head_section" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                                 <children>
+                                    <GridPane layoutY="11.0" AnchorPane.bottomAnchor="11.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="11.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="171.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="132.0" />
+                                          <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="179.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="25.0" prefWidth="172.0" styleClass="head_text" text="Médicaments" />
+                                          <Label alignment="CENTER" prefHeight="25.0" prefWidth="132.0" styleClass="head_text" text="Durée" GridPane.columnIndex="1" />
+                                          <Label alignment="CENTER" prefHeight="25.0" prefWidth="179.0" styleClass="head_text" text="Instructions" GridPane.columnIndex="2" />
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" top="15.0" />
+                           </padding>
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                        </AnchorPane>
+                     </children>
+                  </GridPane>
+                  <AnchorPane maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="400.0" GridPane.columnIndex="1">
+                     <styleClass>
+                        <String fx:value="panel" />
+                        <String fx:value="bo" />
+                        <String fx:value="radius" />
+                     </styleClass>
+                     <children>
+                        <Label layoutX="25.0" layoutY="14.0" styleClass="label-section" text="Historiques Antérieures :" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutY="137.0" prefHeight="111.0" prefWidth="326.0" style="-fx-background-color: transparent; -fx-border-width: 0;" stylesheets="@../../assets/css/main.css" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0">
+                           <content>
+                              <VBox fx:id="historiqueContainer" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="80.0" prefWidth="502.0" spacing="15.0" styleClass="custom-scroll-pane" stylesheets="@../../assets/css/main.css" />
+                           </content>
+                           <padding>
+                              <Insets right="10.0" top="8.0" />
+                           </padding>
+                        </ScrollPane>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" top="15.0" />
+                     </padding>
+                  </AnchorPane>
+               </children>
+            </GridPane>
          </children>
-      </GridPane>
+      </AnchorPane>
    </children>
 </AnchorPane>

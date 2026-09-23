@@ -2,6 +2,7 @@
 
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -31,6 +32,9 @@
                   <String fx:value="bo" />
                   <String fx:value="radius" />
                </styleClass>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
             </TextField>
             <TextField fx:id="instructionPresc" layoutX="20.0" layoutY="17.0" prefHeight="40.0" promptText="1 - 0 - 1" stylesheets="@../../assets/css/main.css" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS">
                <GridPane.margin>
@@ -41,6 +45,9 @@
                   <String fx:value="bo" />
                   <String fx:value="radius" />
                </styleClass>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
             </TextField>
             <TextField fx:id="medicamentPresc" layoutX="176.0" layoutY="17.0" prefHeight="40.0" promptText="ex :  Paracetamol" stylesheets="@../../assets/css/main.css" GridPane.hgrow="ALWAYS">
                <GridPane.margin>
@@ -51,10 +58,16 @@
                   <String fx:value="bo" />
                   <String fx:value="radius" />
                </styleClass>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
             </TextField>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
                <children>
-                  <FontIcon fx:id="btnDelete" iconColor="#d35151" iconLiteral="fas-trash-alt" iconSize="24" layoutX="2.0" layoutY="37.0" onMouseClicked="#supprimeLigne" text="" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="12.0" />
+                  <FontIcon fx:id="btnDelete" iconColor="#d35151" iconLiteral="fas-trash-alt" iconSize="24" layoutX="2.0" layoutY="37.0" onMouseClicked="#supprimeLigne" text="" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="12.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></FontIcon>
                </children>
             </AnchorPane>
          </children>

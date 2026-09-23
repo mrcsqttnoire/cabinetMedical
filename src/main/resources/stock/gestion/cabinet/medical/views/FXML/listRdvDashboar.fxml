@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -43,6 +44,9 @@
             <String fx:value="radius" />
             <String fx:value="bo" />
          </styleClass>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </AnchorPane>
    </children>
    <styleClass>

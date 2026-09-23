@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
@@ -14,12 +15,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import model.consultation.Consultation;
 import model.patient_class.Patient;
 import model.prescription.Prescription;
@@ -177,6 +181,15 @@ public class consultationController implements Initializable {
                 return;
             }
 
+            ouvrirFenetreModale(historiqueContainer);
+            if(modalController.getInstance().isAnnuler){
+                return;
+            };
+
+            if(!modalController.getInstance().isValide){
+                return;
+            }
+
             Consultation c;
             if (isRdv) {
                 c = new Consultation(dateConsultation, diag, tension, temperature, poid, rdv.getPatient());
@@ -185,12 +198,23 @@ public class consultationController implements Initializable {
                 c = new Consultation(dateConsultation, diag, tension, temperature, poid, patient);
             }
 
+
             if (new ConsultationDao().ajouterConsultation(c)) {
                 ObservableList<Consultation> consultations = new ConsultationDao().consultationGetData();
                 Consultation lastConsultation = consultations.get(consultations.size() - 1);
                 // System.out.println(lastConsultation);
-                enregistrerPrescriptions(lastConsultation);
                 updateRdv(this.rdv);
+
+                BigDecimal montant = new BigDecimal(modalController.getInstance().mtt)  ;
+                enregistrerPrescriptions(lastConsultation);
+                facturationController.createDataFacture(montant, lastConsultation);
+
+                if(isRdv){
+                    showHistorique(rdv.getPatient());
+                } else{
+                    showHistorique(patient);
+                }
+                
                 onAnnuler();
                 mainController.showAlert("Consultation terminée avec succès", AlertType.INFORMATION).showAndWait();
             }
@@ -203,9 +227,9 @@ public class consultationController implements Initializable {
     public void onAnnuler() throws IOException {
         try{
             mainController.viderChamps((DatePicker) null, tensionField, temperatureField, poidFields, diagField);
-            new dashboardController().loadCount();
+            // new dashboardController().loadCount();
             prescriptionContainer.getChildren().clear();
-            showHistorique(patient);
+            // showHistorique(patient);
         } catch (Exception e){
             e.printStackTrace();
         }
@@ -232,9 +256,35 @@ public class consultationController implements Initializable {
         }
     }
 
+
+    public void ouvrirFenetreModale(Node sourceNode) {
+    try {
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("views/FXML/modalMtt.fxml"));
+        Parent root = loader.load();
+
+        Stage modalStage = new Stage();
+        modalStage.setTitle("Montant de la consultation");
+
+        modalStage.initModality(Modality.APPLICATION_MODAL);
+
+        Stage parentStage = (Stage) sourceNode.getScene().getWindow();
+        modalStage.initOwner(parentStage);
+
+        modalStage.setScene(new Scene(root));
+        modalStage.setResizable(false); 
+        
+        modalStage.showAndWait();
+
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         try {
+            mainController.intField(tensionField, temperatureField, poidFields);
             instance = this;
         } catch (Exception e) {
             e.printStackTrace();
