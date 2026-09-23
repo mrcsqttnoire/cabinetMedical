@@ -108,6 +108,36 @@ public class RendezVousDao {
 
     }
 
+    private LocalDate now = LocalDate.now();
+    public ObservableList<RendezVous> getRendezVousDuJour() {
+        ObservableList<RendezVous> listData = FXCollections.observableArrayList();
+
+        String sql = "SELECT * FROM rendez_vous WHERE date_rdv = ? AND statut = 'planifie' ORDER BY heure_rdv ASC";
+        try {
+            PreparedStatement query = conn.prepareStatement(sql);
+            query.setObject(1, now);
+            result = query.executeQuery();
+
+            RendezVous rdv;
+
+            while (result.next()) {
+                int idPatient = result.getInt("id_patient");
+                Patient patient = new PatientDao().findById(idPatient);
+                rdv = new RendezVous(result.getObject("date_rdv", LocalDate.class),
+                        result.getObject("heure_rdv", LocalTime.class), result.getString("motif"),
+                        result.getString("statut"), patient);
+                rdv.setId(result.getInt("id_rdv"));
+                listData.add(rdv);
+            }
+
+        } catch (Exception err) {
+            err.printStackTrace();
+        }
+
+        return listData;
+
+    }
+
     public RendezVous findById(int id) {
         RendezVous rdv = null;
         String sql = "SELECT * FROM rendez_vous WHERE id_rdv = ?";

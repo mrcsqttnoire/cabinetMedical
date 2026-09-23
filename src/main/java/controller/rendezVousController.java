@@ -197,6 +197,7 @@ public class rendezVousController implements Initializable {
             mainController.viderChamps(dateRdv, heureRdv, motif, comboPatient);
             mainTitle.setText("Ajouter un rendez vous");
             mainText.setText("Enregistrement d'un nouveau rendez-vous");
+            new dashboardController().loadCount();
         } catch (Exception e) {
             e.printStackTrace();
         }

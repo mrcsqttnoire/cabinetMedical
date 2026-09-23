@@ -203,6 +203,7 @@ public class consultationController implements Initializable {
 
     public void onAnnuler() {
         mainController.viderChamps((DatePicker) null, tensionField, temperatureField, poidFields, diagField);
+        new dashboardController().loadCount();
         prescriptionContainer.getChildren().clear();
     }
 

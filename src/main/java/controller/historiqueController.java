@@ -31,8 +31,8 @@ public class historiqueController implements Initializable{
             diagHist.setText(c.getDiagnostique());
             donneeHist.setText(c.getDonneeMed());
 
-            System.out.println(dateHist);
-            System.out.println(dateHist.getText());
+            // System.out.println(dateHist);
+            // System.out.println(dateHist.getText());
         }
     }
 

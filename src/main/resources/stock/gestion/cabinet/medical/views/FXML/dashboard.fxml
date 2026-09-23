@@ -7,15 +7,16 @@
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-
-<AnchorPane maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="684.0" prefWidth="1023.0" styleClass="bg-primary" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="684.0" prefWidth="1023.0" styleClass="bg-primary" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.dashboardController">
    <opaqueInsets>
       <Insets />
    </opaqueInsets>
@@ -45,7 +46,7 @@
                      </styleClass>
                      <children>
                         <Label layoutX="26.0" layoutY="14.0" styleClass="label-section" text="CONSULTATION DU JOUR" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                        <Label alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" layoutX="29.0" layoutY="59.0" styleClass="countDashboar" text="0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="25.0" />
+                        <Label fx:id="consultationCount" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" layoutX="29.0" layoutY="59.0" styleClass="countDashboar" text="0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="25.0" />
                         <FontIcon iconColor="#0f766e" iconLiteral="fas-calendar" iconSize="32" layoutX="255.0" layoutY="70.0" AnchorPane.rightAnchor="0.0" />
                      </children>
                      <padding>
@@ -61,7 +62,7 @@
                      <children>
                         <FontIcon iconColor="#0f766e" iconLiteral="fas-money-bill-wave-alt" iconSize="32" layoutX="255.0" layoutY="70.0" AnchorPane.rightAnchor="0.0" />
                         <Label layoutX="26.0" layoutY="14.0" styleClass="label-section" text="CAPITAL AUJOURD'HUI" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                        <Label alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" layoutX="29.0" layoutY="59.0" styleClass="countDashboar" text="0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="25.0" />
+                        <Label fx:id="capitalCount" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" layoutX="29.0" layoutY="59.0" styleClass="countDashboar" text="0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="25.0" />
                      </children>
                      <padding>
                         <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
@@ -75,7 +76,7 @@
                      </styleClass>
                      <children>
                         <Label layoutX="26.0" layoutY="14.0" styleClass="label-section" text="RENDEZ-VOUS RESTANT" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                        <Label alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" layoutX="29.0" layoutY="59.0" styleClass="countDashboar" text="0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="25.0" />
+                        <Label fx:id="rdvCount" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" layoutX="29.0" layoutY="59.0" styleClass="countDashboar" text="0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="25.0" />
                         <FontIcon iconColor="#0f766e" iconLiteral="fas-clock" iconSize="32" layoutX="255.0" layoutY="70.0" AnchorPane.rightAnchor="0.0" />
                      </children>
                      <padding>
@@ -101,10 +102,21 @@
                      </styleClass>
                      <children>
                         <Label layoutX="20.0" layoutY="14.0" styleClass="label-section" text="Rendez-vous de la journée" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                        <Separator layoutX="14.0" layoutY="38.0" prefHeight="9.0" prefWidth="606.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0" />
+                        <Separator layoutX="14.0" layoutY="38.0" prefHeight="9.0" prefWidth="606.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                           <padding>
+                              <Insets right="20.0" />
+                           </padding></Separator>
+                        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutX="63.0" layoutY="94.0" prefHeight="111.0" prefWidth="326.0" style="-fx-background-color: transparent; -fx-border-width: 0;" stylesheets="@../../assets/css/main.css" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="29.0">
+                           <content>
+                              <VBox fx:id="rdvDashboardContainer" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="80.0" prefWidth="502.0" spacing="15.0" styleClass="custom-scroll-pane" stylesheets="@../../assets/css/main.css" />
+                           </content>
+                           <padding>
+                              <Insets right="10.0" top="8.0" />
+                           </padding>
+                        </ScrollPane>
                      </children>
                      <padding>
-                        <Insets left="20.0" right="20.0" top="15.0" />
+                        <Insets bottom="15.0" left="20.0" top="15.0" />
                      </padding>
                   </AnchorPane>
                   <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="430.0" prefWidth="306.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
@@ -126,7 +138,7 @@
                         </BarChart>
                         <AnchorPane layoutX="53.0" layoutY="57.0" prefHeight="78.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
                            <styleClass>
-                              <String fx:value="panel-2" />
+                              <String fx:value="date-bg" />
                               <String fx:value="bo" />
                               <String fx:value="radius" />
                            </styleClass>
@@ -137,7 +149,7 @@
                                     <String fx:value="form-label-2" />
                                  </styleClass>
                               </Label>
-                              <Label layoutX="28.0" layoutY="39.0" styleClass="countconsultation" text="30" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="30.0" />
+                              <Label fx:id="consultationsSemaines" layoutX="28.0" layoutY="39.0" styleClass="countconsultation" text="30" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="30.0" />
                            </children>
                            <padding>
                               <Insets left="20.0" top="10.0" />

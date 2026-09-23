@@ -2,6 +2,7 @@ package dao;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 import controller.mainController;
 import javafx.collections.FXCollections;
@@ -212,5 +213,49 @@ public class ConsultationDao {
         }
 
         return listData;
+    }
+
+    private LocalDate now = LocalDate.now();
+    public ObservableList<Consultation> getConsultationJour() {
+        ObservableList<Consultation> listData = FXCollections.observableArrayList();
+
+        String sql = "SELECT * FROM consultation WHERE date_consultation = ?";
+        try {
+            PreparedStatement query = conn.prepareStatement(sql);
+            query.setObject(1, now);
+            result = query.executeQuery();
+
+            Consultation c;
+
+            while (result.next()) {
+                int idRdv = result.getInt("id_rdv");
+                boolean isRdvNull = result.wasNull();
+
+                int idPatient = result.getInt("id_patient");
+                Patient patient = new PatientDao().findById(idPatient);
+
+                c = new Consultation(
+                        result.getObject("date_consultation",
+                                LocalDate.class),
+                        result.getString("diagnostic"),
+                        result.getString("tension"),
+                        result.getString("temperature"),
+                        result.getString("poid"),
+                        patient);
+                c.setId(result.getInt("id_consultation"));
+                if (!isRdvNull) {
+                    RendezVous rdv = new RendezVousDao().findById(idRdv);
+                    c.setRendezVous(rdv);
+                }
+
+                listData.add(c);
+            }
+
+        } catch (Exception err) {
+            err.printStackTrace();
+        }
+
+        return listData;
+
     }
 }
