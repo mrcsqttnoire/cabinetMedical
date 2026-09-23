@@ -63,7 +63,7 @@
                         <AnchorPane layoutX="132.0" layoutY="40.0" prefWidth="106.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="132.0">
                            <children>
                               <FontIcon iconColor="#94a3b8" iconLiteral="fas-map-marker-alt" iconSize="15" layoutX="4.0" layoutY="17.0" />
-                              <Label fx:id="adrsPatient" layoutX="25.0" prefHeight="22.0" prefWidth="101.0" styleClass="custom-text" text="Empty" textFill="#94a3b8" />
+                              <Label fx:id="adrsPatient" layoutX="25.0" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefHeight="22.0" prefWidth="140.0" styleClass="custom-text" text="Empty" textFill="#94a3b8" />
                            </children>
                         </AnchorPane>
                         <Separator layoutX="125.0" layoutY="26.0" orientation="VERTICAL" prefHeight="21.0" prefWidth="6.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="125.0" />

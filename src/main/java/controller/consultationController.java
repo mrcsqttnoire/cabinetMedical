@@ -191,7 +191,6 @@ public class consultationController implements Initializable {
                 // System.out.println(lastConsultation);
                 enregistrerPrescriptions(lastConsultation);
                 updateRdv(this.rdv);
-                showHistorique(patient);
                 onAnnuler();
                 mainController.showAlert("Consultation terminée avec succès", AlertType.INFORMATION).showAndWait();
             }
@@ -201,10 +200,15 @@ public class consultationController implements Initializable {
         }
     }
 
-    public void onAnnuler() {
-        mainController.viderChamps((DatePicker) null, tensionField, temperatureField, poidFields, diagField);
-        new dashboardController().loadCount();
-        prescriptionContainer.getChildren().clear();
+    public void onAnnuler() throws IOException {
+        try{
+            mainController.viderChamps((DatePicker) null, tensionField, temperatureField, poidFields, diagField);
+            new dashboardController().loadCount();
+            prescriptionContainer.getChildren().clear();
+            showHistorique(patient);
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     private ObservableList<Consultation> listData;
@@ -219,7 +223,7 @@ public class consultationController implements Initializable {
                 Parent cardHistorique = loader.load();
 
                 historiqueController controller = loader.getController();
-                controller.setData(consultation);
+                controller.setData(consultation, cardHistorique);
 
                 historiqueContainer.getChildren().add(cardHistorique);
             }

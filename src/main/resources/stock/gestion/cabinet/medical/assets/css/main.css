@@ -306,3 +306,17 @@
     -fx-text-fill : -text-color;
     -fx-padding : 0px;
 }
+
+.chart-bar {
+    -fx-bar-fill: -primary-color; 
+}
+
+.chart-plot-background {
+    -fx-background-color: transparent;
+}
+.chart-vertical-grid-lines {
+    -fx-stroke: transparent; 
+}
+.chart-horizontal-grid-lines {
+    -fx-stroke: #e5e5e5;
+}

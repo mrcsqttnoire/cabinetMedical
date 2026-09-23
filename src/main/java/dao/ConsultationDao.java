@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.*;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -258,4 +259,34 @@ public class ConsultationDao {
         return listData;
 
     }
+
+    public int[] affluenceParJour() {
+    int[] compteurs = new int[5]; // index 0 = lundi ... index 4 = vendredi
+
+    LocalDate lundi = LocalDate.now().with(DayOfWeek.MONDAY);
+    LocalDate vendredi = lundi.plusDays(4);
+
+    String sql = "SELECT DAYOFWEEK(date_consultation) AS jour, COUNT(*) AS nb "
+               + "FROM consultation WHERE date_consultation BETWEEN ? AND ? "
+               + "GROUP BY DAYOFWEEK(date_consultation)";
+
+    try {
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt.setObject(1, lundi);
+        stmt.setObject(2, vendredi);
+        ResultSet rs = stmt.executeQuery();
+
+        while (rs.next()) {
+            int jourSql = rs.getInt("jour");   // 2=lundi ... 6=vendredi
+            int index = jourSql - 2;            // conversion vers index 0-4
+            if (index >= 0 && index < 5) {
+                compteurs[index] = rs.getInt("nb");
+            }
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+    return compteurs;
+}
 }

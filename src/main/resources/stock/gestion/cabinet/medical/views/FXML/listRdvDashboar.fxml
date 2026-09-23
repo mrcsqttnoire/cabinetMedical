@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="611.0" stylesheets="@../../assets/css/consultation.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.listRdvDashboardController">
+<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="611.0" stylesheets="@../../assets/css/consultation.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.listRdvDashboardController">
    <children>
       <HBox layoutX="23.0" layoutY="10.0" spacing="20.0">
          <children>
@@ -34,7 +34,7 @@
             </VBox>
          </children>
       </HBox>
-      <AnchorPane layoutX="559.0" layoutY="16.0" prefHeight="55.0" prefWidth="58.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="9.0">
+      <AnchorPane layoutX="559.0" layoutY="16.0" onMouseClicked="#onConsulter" prefHeight="55.0" prefWidth="58.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="9.0">
          <children>
             <FontIcon iconColor="#0f766e" iconLiteral="fas-stethoscope" iconSize="32" layoutX="11.0" layoutY="39.0" />
          </children>

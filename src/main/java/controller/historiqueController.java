@@ -6,7 +6,9 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import model.consultation.Consultation;
 
 public class historiqueController implements Initializable{
@@ -25,12 +27,13 @@ public class historiqueController implements Initializable{
         return instance;
     }
 
-    public void setData(Consultation c){
+    public void setData(Consultation c, Parent card){
         if(c != null){
             dateHist.setText(c.getDateConsultation().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
             diagHist.setText(c.getDiagnostique());
             donneeHist.setText(c.getDonneeMed());
 
+            ((AnchorPane) card).setUserData(c);
             // System.out.println(dateHist);
             // System.out.println(dateHist.getText());
         }

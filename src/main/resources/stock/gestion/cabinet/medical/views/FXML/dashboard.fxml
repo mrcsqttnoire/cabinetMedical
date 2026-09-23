@@ -128,7 +128,7 @@
                      <children>
                         <Label layoutX="67.0" layoutY="33.0" styleClass="label-section" text="Activité &amp; Consultations" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
                         <Separator layoutX="78.0" layoutY="46.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0" />
-                        <BarChart layoutX="48.0" layoutY="250.0" prefHeight="196.0" prefWidth="283.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="180.0">
+                        <BarChart fx:id="graphConsultation" alternativeColumnFillVisible="true" layoutX="48.0" layoutY="250.0" prefHeight="196.0" prefWidth="283.0" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="180.0">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" />
                           </xAxis>
