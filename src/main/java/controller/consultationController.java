@@ -220,7 +220,7 @@ public class consultationController implements Initializable {
                     showHistorique(patient);
                 }
 
-                // new mainController().fenFacturation();
+                mainController.getInstance().fenFacturation();
                 new facturationController().listFacture();
                 onAnnuler();
                 mainController.showAlert("Consultation terminée avec succès", AlertType.INFORMATION).showAndWait();

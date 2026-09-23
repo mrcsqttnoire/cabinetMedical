@@ -80,7 +80,7 @@ public class FacturationDao {
     public ObservableList<Facturation> facturationGetData() {
         ObservableList<Facturation> listData = FXCollections.observableArrayList();
 
-        String sql = "SELECT * FROM facture";
+        String sql = "SELECT * FROM facture ORDER BY id_facture DESC";
         try {
             Statement query = conn.createStatement();
             result = query.executeQuery(sql);

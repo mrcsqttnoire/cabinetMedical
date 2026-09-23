@@ -254,9 +254,14 @@ public class mainController implements Initializable {
     }
 
     @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
-        instance = this;
-        runTime();
-        activeMenu(dashboardBtn, iconDashboard);
+    public void initialize(URL arg0, ResourceBundle arg1){
+        try{
+            instance = this;
+            runTime();
+            activeMenu(dashboardBtn, iconDashboard);
+            fenDashboard();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

@@ -10,8 +10,10 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-1.0" maxWidth="1.7976931348623157E308" minHeight="-1.0" minWidth="-Infinity" prefHeight="684.0" prefWidth="1023.0" stylesheets="@../../assets/css/consultation.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.facturationController">
+<AnchorPane maxHeight="-1.0" maxWidth="1.7976931348623157E308" minHeight="-1.0" minWidth="-Infinity" prefHeight="684.0" prefWidth="1023.0" styleClass="bg-primary" stylesheets="@../../assets/css/consultation.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.facturationController">
    <padding>
       <Insets left="32.0" right="32.0" />
    </padding>
@@ -75,6 +77,88 @@
                      <children>
                         <Label layoutX="164.0" layoutY="68.0" styleClass="form-label" text="Facrure en détail" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
                         <Separator layoutY="39.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0" />
+                        <VBox layoutX="-21.0" layoutY="69.0" prefHeight="77.0" prefWidth="357.0" AnchorPane.leftAnchor="-0.0" AnchorPane.topAnchor="44.0">
+                           <children>
+                              <Label text="NOM &amp; PRENOM :">
+                                 <styleClass>
+                                    <String fx:value="form-label" />
+                                    <String fx:value="info-label" />
+                                 </styleClass>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="facNom" prefHeight="57.0" prefWidth="327.0" styleClass="info-text" text="Empty" />
+                           </children>
+                           <padding>
+                              <Insets left="15.0" right="15.0" />
+                           </padding>
+                        </VBox>
+                        <VBox layoutX="45.0" layoutY="146.0" prefHeight="47.0" prefWidth="357.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="121.0">
+                           <children>
+                              <Label text="CONTACT :">
+                                 <styleClass>
+                                    <String fx:value="form-label" />
+                                    <String fx:value="info-label" />
+                                 </styleClass>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="FacContact" prefHeight="57.0" prefWidth="327.0" styleClass="info-text-2" text="Empty" />
+                           </children>
+                           <padding>
+                              <Insets left="15.0" right="15.0" />
+                           </padding>
+                        </VBox>
+                        <VBox layoutX="-21.0" layoutY="69.0">
+                           <padding>
+                              <Insets left="15.0" right="15.0" />
+                           </padding>
+                        </VBox>
+                        <VBox layoutX="42.0" layoutY="199.0" prefHeight="165.0" prefWidth="388.0" AnchorPane.leftAnchor="0.0">
+                           <children>
+                              <Label text="DIAGNOSTIQUES :">
+                                 <styleClass>
+                                    <String fx:value="form-label" />
+                                    <String fx:value="info-label" />
+                                 </styleClass>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Text fx:id="facDiag" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="custom-text" text="Text" wrappingWidth="357.13671875" VBox.vgrow="ALWAYS" />
+                           </children>
+                           <padding>
+                              <Insets left="15.0" right="15.0" />
+                           </padding>
+                        </VBox>
+                        <Label fx:id="facMtt" alignment="CENTER_RIGHT" layoutX="276.0" layoutY="-1.0" prefHeight="57.0" prefWidth="128.0" styleClass="info-text-2" text="Empty" AnchorPane.leftAnchor="255.0" AnchorPane.rightAnchor="0.0">
+                           <padding>
+                              <Insets left="15.0" />
+                           </padding>
+                        </Label>
+                        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutX="42.0" layoutY="408.0" prefHeight="238.0" prefWidth="374.0" style="-fx-background-color: transparent; -fx-border-width: 0;" stylesheets="@../../assets/css/main.css" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="380.0">
+                           <content>
+                              <VBox fx:id="prescContainer" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="80.0" prefWidth="502.0" spacing="15.0" styleClass="custom-scroll-pane" stylesheets="@../../assets/css/main.css">
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                              </VBox>
+                           </content>
+                           <padding>
+                              <Insets right="10.0" top="8.0" />
+                           </padding>
+                        </ScrollPane>
+                        <Label layoutX="40.0" layoutY="364.0" text="PRESCRIPTIONS :" AnchorPane.leftAnchor="20.0">
+                           <styleClass>
+                              <String fx:value="form-label" />
+                              <String fx:value="info-label" />
+                           </styleClass>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                </children>

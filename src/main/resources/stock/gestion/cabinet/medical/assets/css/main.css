@@ -16,7 +16,7 @@
 
 * {
     -primary-color: #0F766E;
-    /* -bg-color: #F8F9FF; */
+    /* -bg-color: #E9ECEF; */
     -bg-color: #F8F9FF;
     -neutral-color: #f4f4f4;
 
@@ -295,7 +295,7 @@
 
 .countDashboar{
     -fx-font-family : "Poppins Bold";
-    -fx-font-size : 54px;
+    -fx-font-size : 40px;
     -fx-text-fill : -text-color;
     -fx-padding : 0px;
 }

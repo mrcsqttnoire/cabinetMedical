@@ -1,15 +1,19 @@
 package controller;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import dao.ConsultationDao;
+import dao.FacturationDao;
 import dao.RendezVousDao;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.VBox;
+import model.facturation.Facturation;
 import model.rendez_vous.RendezVous;
 import stock.gestion.cabinet.medical.App;
 import javafx.scene.Parent;
@@ -66,7 +70,17 @@ public class dashboardController implements Initializable {
         for(int i=0; i<5;i++){
             SumWeekConsultation += consultaionSemaine[i];
         }
-        consultationsSemaines.setText(String.valueOf(SumWeekConsultation));
+        consultationsSemaines.setText(String.valueOf(SumWeekConsultation) + " consultationsgit");
+
+        ObservableList<Facturation> facList = new FacturationDao().facturationGetData();
+        // BigDecimal capitalDay = BigDecimal.ZERO;
+        BigDecimal sum = BigDecimal.ZERO;
+        for(Facturation fac : facList){
+            if(fac.getDateFacture() != null && fac.getDateFacture().equals(LocalDate.now()) && fac.getMontant() != null){
+                sum = sum.add(fac.getMontant());
+            }
+        }
+        capitalCount.setText(String.valueOf(sum));
     }
 
     public void loadGraphe() {
@@ -88,6 +102,7 @@ public class dashboardController implements Initializable {
         try {
             instance = this;
             loadRendezVousDuJour();
+            // facturationController.getInstance().listFacture();
             loadCount();
             loadGraphe();
         } catch (Exception e) {

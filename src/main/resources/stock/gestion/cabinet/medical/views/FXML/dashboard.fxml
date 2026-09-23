@@ -106,7 +106,7 @@
                            <padding>
                               <Insets right="20.0" />
                            </padding></Separator>
-                        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutX="63.0" layoutY="94.0" prefHeight="111.0" prefWidth="326.0" style="-fx-background-color: transparent; -fx-border-width: 0;" stylesheets="@../../assets/css/main.css" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="29.0">
+                        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" layoutX="63.0" layoutY="94.0" prefHeight="111.0" prefWidth="326.0" style="-fx-background-color: transparent; -fx-border-width: 0;" stylesheets="@../../assets/css/main.css" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
                            <content>
                               <VBox fx:id="rdvDashboardContainer" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="80.0" prefWidth="502.0" spacing="15.0" styleClass="custom-scroll-pane" stylesheets="@../../assets/css/main.css" />
                            </content>
